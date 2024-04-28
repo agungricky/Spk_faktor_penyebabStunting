@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> -->
+    <!-- uPlot -->
+    <link rel="stylesheet" href="../../plugins/uplot/uPlot.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>ChartJS</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">ChartJS</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- AREA CHART -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Area Chart</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <div id="areaChart"
+                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.card -->
+    </div>
+
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/uplot/uPlot.iife.min.js"></script>
+
+    <script src="/public/plugins/uplot/uPlot.iife.min.js"></script>
+
+    <script>
+        $(function () {
+            /* uPlot
+             * -------
+             * Here we will create a few charts using uPlot
+             */
+
+            function getSize(elementId) {
+                return {
+                    width: document.getElementById(elementId).offsetWidth,
+                    height: document.getElementById(elementId).offsetHeight,
+                }
+            }
+
+            let data = [
+                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+                [0, 10, 20, 30, 40, 50, 55],
+                [0, 15, 30, 45, 60, 75, 90],
+            ];
+
+            //--------------
+            //- AREA CHART -
+            //--------------
+
+            const optsAreaChart = {
+                ...getSize('areaChart'),
+                scales: {
+                    x: {
+                        time: false,
+                    },
+                    y: {
+                        range: [0, 100],
+                    },
+                },
+                series: [
+                    {},
+                    {
+                        // fill: 'rgba(60,141,188,0.7)',
+                        stroke: 'rgba(60,141,188,1)',
+                    },
+                    {
+                        stroke: '#c1c7d1',
+                        // fill: 'rgba(210, 214, 222, .7)',
+                    },
+                ],
+            };
+
+            let areaChart = new uPlot(optsAreaChart, data, document.getElementById('areaChart'));
+
+            const optsLineChart = {
+                ...getSize('lineChart'),
+                scales: {
+                    x: {
+                        time: false,
+                    },
+                    y: {
+                        range: [0, 100],
+                    },
+                },
+                series: [
+                    {},
+                    {
+                        fill: 'transparent',
+                        width: 5,
+                        stroke: 'rgba(60,141,188,1)',
+                    },
+                    {
+                        stroke: '#c1c7d1',
+                        width: 5,
+                        fill: 'transparent',
+                    },
+                ],
+            };
+
+            let lineChart = new uPlot(optsLineChart, data, document.getElementById('lineChart'));
+
+            window.addEventListener("resize", e => {
+                areaChart.setSize(getSize('areaChart'));
+                lineChart.setSize(getSize('lineChart'));
+            });
+        })
+    </script>
+</body>
+
+</html>
