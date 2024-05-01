@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\dataSolusi;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,12 +12,29 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('website.Admin.Dashboard');
+        $query = dataSolusi::all();
+        return view('website.Admin.Dashboard', compact('query'));
     }
 
-    public function imunisasi()
+    public function dataBidan()
     {
-        return view('website.Admin.Tambahdata_imunisasi');
+        return view('website.Admin.dataBidan');
+    }
+
+    public function dataKader()
+    {
+        return view('website.Admin.dataKader');
+    }
+
+    public function dataPengguna()
+    {
+        return view('website.Admin.dataPengguna');
+    }
+
+    public function Solusi()
+    {
+        $query = dataSolusi::all();
+        return view('website.Admin.Solusi', compact('query'));
     }
 
     /**
@@ -24,7 +42,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -40,7 +58,7 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('website.Admin.ShowSolusi', compact('id'));
     }
 
     /**

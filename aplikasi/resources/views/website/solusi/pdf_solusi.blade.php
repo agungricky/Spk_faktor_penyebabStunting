@@ -17,6 +17,9 @@
             </div>
         </div>
 
-        <embed src="/public/1786-4665-1-PB.pdf" type="application/pdf" height="1000" width="1366"></embed>
+        <div class="embed-responsive embed-responsive-16by9">
+            <embed class="embed-responsive-item" src="{{ asset('public/' . $parameter . '.pdf') }}" type="application/pdf">
+        </div>
+
     </div>
 @endsection

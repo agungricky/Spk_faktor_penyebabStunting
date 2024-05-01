@@ -40,6 +40,13 @@ class userController extends Controller
         return view('website.user.quisioner');
     }
 
+    public function hasil(Request $request)
+    {
+        $parameter = $request->query('parameter');
+        return view('website.solusi.pdf_solusi', compact('parameter'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
