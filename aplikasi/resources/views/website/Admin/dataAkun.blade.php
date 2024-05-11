@@ -23,20 +23,44 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        @if (session('success'))
+                        @if (session('Success'))
                             <div class="alert alert-success">
-                                {{ session('success') }}
+                                {{ session('Success') }}
                             </div>
                         @endif
                         <div class="card">
+                            <div class="card-header">
+                                @if ($id != 'Pengguna')
+                                    <a href="{{ url('Form', ['id' => $id]) }}">
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                                            Tambah Data
+                                        </button>
+                                    </a>
+                                @endif
+
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="table_search" class="form-control float-right"
+                                            placeholder="Search">
+
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Faktor Penyebab</th>
-                                            <th>Nama File</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Role</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -44,36 +68,28 @@
                                         @php
                                             $no = 1;
                                         @endphp
-                                        @foreach ($query as $item)
+                                        @foreach ($dataAkun as $item)
                                             <tr>
-                                                <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $item->Faktor_penyebab }}</td>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->Password }}</td>
+                                                <td>{{ $item->Role }}</td>
                                                 <td>
-                                                    {{ isset($item->Nama_file) ? $item->Nama_file : '-' }}
-                                                </td>
-                                                <td>
-                                                    <form method="POST" action="{{ route('delete', ['id'=>$item->idSolusi]) }}">
+                                                    <form method="POST" action="{{ route('Hapus_Akun', ['id'=>$item->idAkun]) }}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <a href="{{ url('Solusi', ['id' => $item->Nama_file]) }}"
-                                                            class="btn btn-info btn-sm">
-                                                            <i class="fa-solid fa-eye"></i>
-                                                        </a>
-
-                                                        &nbsp;
-                                                        <a class="btn btn-warning btn-sm" title="Update Solusi"
-                                                            href="{{ url('Edit', ['id' => $item->idSolusi]) }}">
+                                                        <a class="btn btn-warning btn-sm" title="Edit Akun Bidan"
+                                                            href="{{ route('Edit_Akun', ['id' => $item->idAkun]) }}">
                                                             <i class="fa-solid fa-pencil"></i>
                                                         </a>
                                                         &nbsp;
                                                         <button type="submit" class="btn btn-danger btn-sm"
                                                             title="Hapus Pegawai"
-                                                            onclick="return confirm('Anda Yakin Akan Menghapus File {{ isset($item->Nama_file) ? $item->Nama_file : '-' }}?')">
+                                                            onclick="return confirm('Anda Yakin Data akan diHapus?')">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </form>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>

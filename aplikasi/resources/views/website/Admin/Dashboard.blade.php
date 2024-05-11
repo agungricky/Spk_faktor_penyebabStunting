@@ -20,90 +20,17 @@
 
         <section class="content pb-3">
             <div class="container-fluid h-100">
-                {{-- Data Diri --}}
+                {{-- Data Pengguna --}}
                 <div class="card card-row card-secondary">
                     <div class="card-header">
                         <h3 class="card-title">Data</h3>
                     </div>
                     <div class="card-body">
-                        {{-- <div class="card card-info card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title">Admin | 3 Data</h5>
-                                <div class="card-tools">
-                                    <a href="{{ route('dataBidan') }}" class="btn btn-tool">
-                                        <span class="btn btn-tool btn-link px-2">#Bidan</span><i class="fas fa-pen"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Posisi</th>
-                                            <th scope="col">No Hp</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Rina</td>
-                                            <td>Bidan Ibu Dan Anak</td>
-                                            <td>081339291111</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <h5 class="card-title">Kader | 20 Data</h5>
+                                <h5 class="card-title">Pengguna | {{$banyakPengguna}} Data</h5>
                                 <div class="card-tools">
-                                    <a href="{{ route('dataKader') }}" class="btn btn-tool">
-                                        <span class="btn btn-tool btn-link px-2">#Kader</span><i class="fas fa-pen"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div> --}}
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="card-title">Pengguna | 201 Data</h5>
-                                <div class="card-tools">
-                                    <a href="{{ route('dataPengguna') }}" class="btn btn-tool">
+                                    <a href="{{ url('Pengguna') }}" class="btn btn-tool">
                                         <span class="btn btn-tool btn-link px-2">#Pengguna</span><i class="fas fa-pen"></i>
                                     </a>
                                 </div>
@@ -112,19 +39,24 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Last</th>
-                                            <th scope="col">Handle</th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Nama Anak</th>
+                                            <th scope="col">Nama Ibu</th>
+                                            <th scope="col">Posyandu</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($dataPengguna as $item)
+                                            <tr>
+                                                <th scope="row">{{$no++}}</th>
+                                                <td>{{$item->Nama_anak}}</td>
+                                                <td>{{$item->Nama_ibu}}</td>
+                                                <td>{{$item->Nama_posyandu}}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -207,16 +139,18 @@
                     <div class="card-header">
                         <h3 class="card-title">Akun</h3>
                     </div>
+
                     <div class="card-body">
                         <div class="card card-info card-outline">
                             <div class="card-header">
                                 <h5 class="card-title">Akun Admin</h5>
                                 <div class="card-tools">
-                                    <a href="{{ route('dataBidan') }}" class="btn btn-tool">
+                                    <a href="{{ url('Data-Bidan') }}" class="btn btn-tool">
                                         <span class="btn btn-tool btn-link px-2">#Bidan</span><i class="fas fa-pen"></i>
                                     </a>
                                 </div>
                             </div>
+
                             <div class="card-body">
                                 <table class="table">
                                     <thead>
@@ -227,21 +161,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Rina</td>
-                                            <td>Bidan Ibu & Anak</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Puji</td>
-                                            <td>Bidan Ahli Gizi</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Waraswati</td>
-                                            <td>Bidan Umum</td>
-                                        </tr>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($bidan as $item)
+                                            <tr>
+                                                <th scope="row">{{ $no++ }}</th>
+                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->Role }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -251,7 +180,7 @@
                             <div class="card-header">
                                 <h5 class="card-title">Akun Kader</h5>
                                 <div class="card-tools">
-                                    <a href="{{ route('dataKader') }}" class="btn btn-tool">
+                                    <a href="{{ url('Data-Kader') }}" class="btn btn-tool">
                                         <span class="btn btn-tool btn-link px-2">#Kader</span><i class="fas fa-pen"></i>
                                     </a>
                                 </div>
@@ -266,21 +195,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Lingkungan</td>
-                                            <td>Lingkungan.pdf</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Kesehatan Ibu</td>
-                                            <td>Kesehatan Ibu.pdf</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Kurag gizi saat hamil</td>
-                                            <td>Kurag gizi saat hamil.pdf</td>
-                                        </tr>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($kader as $item)
+                                            <tr>
+                                                <th scope="row">{{ $no++ }}</th>
+                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->Role }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -290,7 +214,7 @@
                             <div class="card-header">
                                 <h5 class="card-title">Akun Pengguna | 203 Data</h5>
                                 <div class="card-tools">
-                                    <a href="{{ route('dataPengguna') }}" class="btn btn-tool">
+                                    <a href="{{ url('Data-Pengguna') }}" class="btn btn-tool">
                                         <span class="btn btn-tool btn-link px-2">#Pengguna</span><i
                                             class="fas fa-pen"></i>
                                     </a>
@@ -306,21 +230,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Lingkungan</td>
-                                            <td>Lingkungan.pdf</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Kesehatan Ibu</td>
-                                            <td>Kesehatan Ibu.pdf</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Kurag gizi saat hamil</td>
-                                            <td>Kurag gizi saat hamil.pdf</td>
-                                        </tr>
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach ($pengguna as $item)
+                                            <tr>
+                                                <th scope="row">{{ $no++ }}</th>
+                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->Role }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

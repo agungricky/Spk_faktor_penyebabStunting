@@ -28,6 +28,7 @@
     <header>
         {{-- @include('website.main.loading_screen') --}}
         @include('website.main.header')
+        @include('website.main.aside')
     </header>
 
     <body>

@@ -1,0 +1,243 @@
+@extends('website.index')
+
+@section('content')
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Edit Profile</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Edit Profile</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h3 class="card-title">Data Anak</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center align-items-center mb-3">
+                                        <div class="col-md-6">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQxRuvMwEQVDFBIia-813hFyvotQxAN7jfsRdeLuxiA&amp;s"
+                                                alt="Beautiful Image" class="img-fluid max-width rounded">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Foto Profile</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="inputGroupFile04"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nama Anak</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="Nama_anak" value="{{$query->Nama_anak}}">
+                                    </div>
+                                </div>
+                                <!-- /.form group -->
+
+                                <!-- phone mask -->
+                                <div class="form-group">
+                                    <label>Usia Anak</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-pager"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{$query->Usia}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h3 class="card-title">DATA AKUN</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{$akun->Username}}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        </div>
+                                        <input type="password" class="form-control" value="{{$akun->Password}}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" value="{{$akun->Role}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">DATA DIRI ORANGTUA</h3>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>NIK</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-regular fa-address-card"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>NAMA IBU</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-user-group"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>ALAMAT</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa-solid fa-city"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>DESA</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa-solid fa-shop"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label>KECAMATAN</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fa-solid fa-flag"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Rt</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-user-tie"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Rw</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-user-tie"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>No Hp</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-phone-volume"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Posyandu</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i
+                                                            class="fa-solid fa-people-roof"></i></span>
+                                                </div>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Tambak Wirang</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success" type="button">Kirim</button>
+                        <button class="btn btn-warning" type="button">Batal</button>
+                      </div>
+                </div>
+            </div>
+        </section>
+    </div>
+@endsection

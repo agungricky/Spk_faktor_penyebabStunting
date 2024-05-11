@@ -18,7 +18,7 @@
         </div>
 
         <div class="embed-responsive embed-responsive-16by9">
-            <embed class="embed-responsive-item" src="{{ asset('public/' . $parameter . '.pdf') }}" type="application/pdf">
+            <embed class="embed-responsive-item" src="{{ asset('public/File_solusi/' . $parameter . '.pdf') }}" type="application/pdf">
         </div>
 
     </div>

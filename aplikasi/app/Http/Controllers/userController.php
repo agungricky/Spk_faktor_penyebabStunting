@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Akun;
+use App\Models\DataPengguna;
+use App\Models\InputHasil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 
 class userController extends Controller
@@ -12,27 +16,23 @@ class userController extends Controller
      */
     public function index()
     {
-        return view('website.user.user');
-    }
-
-    public function Riwayatposyandu()
-    {
-        return view('website.user.Riwayatposyandu');
-    }
-
-    public function Riwayatimunisasi()
-    {
-        return view('website.user.Riwayatimunisasi');
+        $dataLogin = Auth::user();
+        $query = DataPengguna::where('Akun_idAkun', $dataLogin->id)->first();
+        return view('website.user.user', compact('query'))
+                ->with('dataLogin', $dataLogin);
     }
 
     public function Riwayatkesehatan()
     {
-        return view('website.user.Riwayatkesehatan');
+        $query = InputHasil::all();
+        return view('website.user.Riwayatkesehatan', compact('query'));
     }
 
-    public function Dataanak()
+    public function Editprofile()
     {
-        return view('website.user.Dataanak');
+        $akun = Akun::all()->first();
+        $query = DataPengguna::all()->first();
+        return view('website.user.EditProfile', compact('query', 'akun'));
     }
 
     public function Quisioner()
@@ -255,9 +255,27 @@ class userController extends Controller
             $tampilHasil_polaMakanBalita
         ];
 
+
         $data = collect($data)->sortByDesc(function ($item) {
             return $item[2];
         })->values()->all();
+
+        $Akunid_dummy = 3;
+
+        InputHasil::create([
+            'Lingkungan'=>number_format($data[0][3], 1),
+            'Pola_asuh'=>number_format($data[1][3], 1),
+            'Kesehatan_anak'=>number_format($data[2][3], 1),
+            'Faktor_kesehatan_ibu'=>number_format($data[3][3], 1),
+            'Pengetahuan_orangtua'=>number_format($data[4][3], 1),
+            'Kekurangan_Gizi_saat_Hamil'=>number_format($data[5][3], 1),
+            'Pola_Makanbalita'=>number_format($data[6][3], 1),
+            'dataPengguna_iddataPengguna'=>$Akunid_dummy,
+            'Fatror_penyebab'=> $data[0][0]
+            ]);
+
+        // dd($data[0][0]);
+
 
         return view('website.user.Hasil', compact('Nilai_input', 'jawaban', 'Urgensi', 'tampilHasil_lingkungan', 'data', 'presentase_Ligkungan'));
     }

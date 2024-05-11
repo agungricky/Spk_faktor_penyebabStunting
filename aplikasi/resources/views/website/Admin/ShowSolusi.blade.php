@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <embed class="embed-responsive-item" src="{{ asset('public/' . $id . '.pdf') }}" type="application/pdf">
+                            <embed class="embed-responsive-item" src="{{ asset('public/File_solusi/' . $id) }}" type="application/pdf">
                         </div>
                     </div>
                 </div>
