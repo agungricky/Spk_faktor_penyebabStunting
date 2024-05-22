@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('website.Login.index')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('/aplikasi/resources/views/website/Login/style.css') }}">
-</head>
-
-<body>
-    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+@section('content')
+    <div class="container-fluid px-md-5 px-lg-1 px-xl-5 py-4 mx-auto">
         <div class="card card0 border-0">
-            {{-- @if (session('gagal'))
-                <div class="alert alert-danger m-2" role="alert">
-                    <i class="fa-regular fa-hand"></i> | {{ session('gagal') }}
-                </div>
-            @endif --}}
             <div class="row d-flex">
                 <div class="col-lg-6 col-sm col-sm d-none d-sm-block">
                     <div class="card1 pb-5">
@@ -42,21 +24,35 @@
                             <p class="mb-0 mr-4 mt-2">Silahkan melakukan Login Terlebih dahulu</p>
                             <div class="line w-100"></div>
                         </div>
+                        {{-- 
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif --}}
 
                         <form action="{{ route('proses-Login') }}" method="POST">
                             @csrf
+                            {{-- -------------------------------- Akun -------------------------- --}}
                             <div class="row px-3">
                                 <label class="mb-1">
-                                    <h6 class="mb-0 text-sm">Username</h6>
+                                    <h6 class="mb-0 text-sm">Email</h6>
                                 </label>
-                                <input class="mb-4" type="text" name="email" placeholder="Masukan Username">
+                                <input type="text" name="email" placeholder="Masukan Alamat Email" value="{{ old('email') }}">
+                                @if ($errors->has('email'))
+                                    <span class="error text-danger mb-2">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
                             <div class="row px-3">
-                                <label class="mb-1">
+                                <label class="mb-1 mt-3">
                                     <h6 class="mb-0 text-sm">Password</h6>
                                 </label>
                                 <input type="password" name="password" placeholder="Masukkan Password">
+                                @if ($errors->has('password'))
+                                    <span class="error text-danger mb-2">{{ $errors->first('password') }}</span>
+                                @endif
                             </div>
+                            {{-- -------------------------------- Akun -------------------------- --}}
 
                             <div class="row px-3 mb-4">
                                 <div class="custom-control custom-checkbox custom-control-inline">
@@ -70,9 +66,9 @@
                             </div>
                         </form>
 
-                        <div class="row mb-4 px-3">
-                            <small class="font-weight-bold">Don't have an account? <a
-                                    class="text-danger ">Register</a></small>
+                        <div class="row mb-4 px-3 mb-5">
+                            <small class="font-weight-bold">Belum Punya Akun?
+                                <a href="{{ url('Register') }}" class="text-danger">Buat Akun</a></small>
                         </div>
                     </div>
                 </div>
@@ -90,18 +86,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://kit.fontawesome.com/5b3710b119.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if ($gagal = Session::get('gagal'))
-        <script>
-            Swal.fire({
-                title: "Gagal Login?",
-                text: "{{ $gagal }}",
-                icon: "error"
-            });
-        </script>
-    @endif
-</body>
-
-</html>
+@endsection

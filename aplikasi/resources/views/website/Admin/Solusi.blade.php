@@ -52,7 +52,8 @@
                                                     {{ isset($item->Nama_file) ? $item->Nama_file : '-' }}
                                                 </td>
                                                 <td>
-                                                    <form method="POST" action="{{ route('delete', ['id'=>$item->idSolusi]) }}">
+                                                    <form method="POST"
+                                                        action="{{ route('delete', ['id' => $item->idSolusi]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <a href="{{ url('Solusi', ['id' => $item->Nama_file]) }}"
@@ -60,17 +61,19 @@
                                                             <i class="fa-solid fa-eye"></i>
                                                         </a>
 
-                                                        &nbsp;
-                                                        <a class="btn btn-warning btn-sm" title="Update Solusi"
-                                                            href="{{ url('Edit', ['id' => $item->idSolusi]) }}">
-                                                            <i class="fa-solid fa-pencil"></i>
-                                                        </a>
-                                                        &nbsp;
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                            title="Hapus Pegawai"
-                                                            onclick="return confirm('Anda Yakin Akan Menghapus File {{ isset($item->Nama_file) ? $item->Nama_file : '-' }}?')">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </button>
+                                                        @if ($dataLogin->Role == 'Bidan')
+                                                            &nbsp;
+                                                            <a class="btn btn-warning btn-sm" title="Update Solusi"
+                                                                href="{{ url('Edit', ['id' => $item->idSolusi]) }}">
+                                                                <i class="fa-solid fa-pencil"></i>
+                                                            </a>
+                                                            &nbsp;
+                                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                                title="Hapus Pegawai"
+                                                                onclick="return confirm('Anda Yakin Akan Menghapus File {{ isset($item->Nama_file) ? $item->Nama_file : '-' }}?')">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </button>
+                                                        @endif
                                                     </form>
                                                 </td>
 

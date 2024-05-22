@@ -28,7 +28,7 @@
 
                             <form action="{{ route('input') }}" method="POST">
                                 @csrf
-                                @method('PACTH')
+                                {{-- @method('PACTH') --}}
                                 <div class="card-body">
                                     <div class="form-group">
                                         <div class="mb-3">
@@ -43,6 +43,14 @@
                                             <label for="exampleInputEmail1" class="form-label">Password</label>
                                             <input type="text" class="form-control" id="password"
                                                 aria-describedby="password" placeholder="Masukan Password" name="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="email"
+                                                aria-describedby="email" placeholder="Masukan Email" name="email">
                                         </div>
                                     </div>
 

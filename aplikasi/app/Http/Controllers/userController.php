@@ -19,20 +19,54 @@ class userController extends Controller
         $dataLogin = Auth::user();
         $query = DataPengguna::where('Akun_idAkun', $dataLogin->id)->first();
         return view('website.user.user', compact('query'))
-                ->with('dataLogin', $dataLogin);
+            ->with('dataLogin', $dataLogin);
     }
 
     public function Riwayatkesehatan()
     {
-        $query = InputHasil::all();
+        $dataLogin = Auth::user();
+        $dataPengguna = DataPengguna::where('Akun_idAkun', $dataLogin->id)->first();
+
+        $query = InputHasil::where('dataPengguna_iddataPengguna', $dataPengguna->iddataPengguna)->get();
+        // dd($query);
         return view('website.user.Riwayatkesehatan', compact('query'));
     }
 
-    public function Editprofile()
+    public function Editprofile(string $iddataPengguna, string $Akun_idAkun)
     {
-        $akun = Akun::all()->first();
-        $query = DataPengguna::all()->first();
+        $akun = Akun::where('id', $Akun_idAkun)->first();
+        $query = DataPengguna::where('iddataPengguna', $iddataPengguna)->first();
         return view('website.user.EditProfile', compact('query', 'akun'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateProfile(Request $request, string $iddataPengguna, string $Akun_idAkun)
+    {
+        $foto = DataPengguna::where('iddataPengguna', $iddataPengguna)->pluck('foto')->first();
+
+        Akun::where('id', $Akun_idAkun)->update([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        DataPengguna::where('iddataPengguna', $iddataPengguna)->update([
+            'Nik' => $request->nik,
+            'Foto' => isset($request->foto) ? $request->foto : $foto,
+            'Nama_anak' => $request->nama_anak,
+            'Usia' => $request->usia,
+            'Nama_ibu' => $request->nama_ibu,
+            'Alamat' => $request->alamat,
+            'Desa' => $request->desa,
+            'Kecamatan' => $request->kecamatan,
+            'Rt' => $request->rt,
+            'Rw' => $request->rw,
+            'No_Hp' => $request->no_hp,
+        ]);
+
+        return redirect('user');
     }
 
     public function Quisioner()
@@ -47,19 +81,27 @@ class userController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $fields = range(1, 28); 
+
+        $rules = [];
+        foreach ($fields as $field) {
+            $rules["p{$field}"] = 'required';
+        }
+
+        // Custom messages
+        $messages = [
+            '*.required' => 'Kolom Wajib di isi',
+        ];
+
+        // Validate the request
+        $request->validate($rules, $messages);
+
         //======Mengambil Request Form =======//
         $Jawaban_1 = $request->p1;
         $Jawaban_2 = $request->p2;
@@ -260,24 +302,26 @@ class userController extends Controller
             return $item[2];
         })->values()->all();
 
-        $Akunid_dummy = 3;
+        $dataLogin = Auth::user();
+        $dataPengguna = DataPengguna::where('Akun_idAkun', $dataLogin->id)->first();
 
         InputHasil::create([
-            'Lingkungan'=>number_format($data[0][3], 1),
-            'Pola_asuh'=>number_format($data[1][3], 1),
-            'Kesehatan_anak'=>number_format($data[2][3], 1),
-            'Faktor_kesehatan_ibu'=>number_format($data[3][3], 1),
-            'Pengetahuan_orangtua'=>number_format($data[4][3], 1),
-            'Kekurangan_Gizi_saat_Hamil'=>number_format($data[5][3], 1),
-            'Pola_Makanbalita'=>number_format($data[6][3], 1),
-            'dataPengguna_iddataPengguna'=>$Akunid_dummy,
-            'Fatror_penyebab'=> $data[0][0]
-            ]);
+            'Lingkungan' => number_format($data[0][3], 1),
+            'Pola_asuh' => number_format($data[1][3], 1),
+            'Kesehatan_anak' => number_format($data[2][3], 1),
+            'Faktor_kesehatan_ibu' => number_format($data[3][3], 1),
+            'Pengetahuan_orangtua' => number_format($data[4][3], 1),
+            'Kekurangan_Gizi_saat_Hamil' => number_format($data[5][3], 1),
+            'Pola_Makanbalita' => number_format($data[6][3], 1),
+            'dataPengguna_iddataPengguna' => $dataPengguna->iddataPengguna,
+            'Fatror_penyebab' => $data[0][0]
+        ]);
 
-        // dd($data[0][0]);
-
-
-        return view('website.user.Hasil', compact('Nilai_input', 'jawaban', 'Urgensi', 'tampilHasil_lingkungan', 'data', 'presentase_Ligkungan'));
+        try {
+            return view('website.user.Hasil', compact('Nilai_input', 'jawaban', 'Urgensi', 'tampilHasil_lingkungan', 'data', 'presentase_Ligkungan'));
+        } catch (\Throwable $th) {
+            return back()->withInput();
+        }
     }
 
     /**
@@ -292,14 +336,6 @@ class userController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
     {
         //
     }

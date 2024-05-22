@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
-                                <h5 class="card-title">Pengguna | {{$banyakPengguna}} Data</h5>
+                                <h5 class="card-title">Pengguna | {{ $banyakPengguna }} Data</h5>
                                 <div class="card-tools">
                                     <a href="{{ url('Pengguna') }}" class="btn btn-tool">
                                         <span class="btn btn-tool btn-link px-2">#Pengguna</span><i class="fas fa-pen"></i>
@@ -51,10 +51,10 @@
                                         @endphp
                                         @foreach ($dataPengguna as $item)
                                             <tr>
-                                                <th scope="row">{{$no++}}</th>
-                                                <td>{{$item->Nama_anak}}</td>
-                                                <td>{{$item->Nama_ibu}}</td>
-                                                <td>{{$item->Nama_posyandu}}</td>
+                                                <th scope="row">{{ $no++ }}</th>
+                                                <td>{{ $item->Nama_anak }}</td>
+                                                <td>{{ $item->Nama_ibu }}</td>
+                                                <td>{{ $item->Nama_posyandu }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -74,19 +74,14 @@
                             <div class="card-header">
                                 <h5 class="card-title">Kesehatan masyarakat</h5>
                                 <div class="card-tools">
-                                    <a href="#" class="btn btn-tool btn-link">#5</a>
-                                    <a href="#" class="btn btn-tool">
-                                        <i class="fas fa-pen"></i>
+                                    <a href="{{ url('Chart') }}" class="btn btn-tool">
+                                        <span class="btn btn-tool btn-link px-2">#Chart</span><i class="fas fa-pen"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa.
-                                    Cum sociis natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus.
-                                </p>
+                                <img src="public/pages/charts/pie.jpg" alt="Pie" width="100%">
+                                <p class="text-center py-3">Presetase hasil input pengguna direpresentasikan melalui Chart pie agar lebih mudah di pahami dan lebih efisien.</p>
                             </div>
                         </div>
                     </div>
@@ -167,7 +162,7 @@
                                         @foreach ($bidan as $item)
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->username }}</td>
                                                 <td>{{ $item->Role }}</td>
                                             </tr>
                                         @endforeach
@@ -201,7 +196,7 @@
                                         @foreach ($kader as $item)
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->username }}</td>
                                                 <td>{{ $item->Role }}</td>
                                             </tr>
                                         @endforeach
@@ -236,7 +231,7 @@
                                         @foreach ($pengguna as $item)
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $item->Username }}</td>
+                                                <td>{{ $item->username }}</td>
                                                 <td>{{ $item->Role }}</td>
                                             </tr>
                                         @endforeach

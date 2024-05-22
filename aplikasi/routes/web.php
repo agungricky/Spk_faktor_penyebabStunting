@@ -24,8 +24,18 @@ use Illuminate\Support\Facades\Route;
 // =================== Proses Authentikasi User =======================//
 route::redirect('/', 'login');
 Route::get('/login', [AuthController::class, 'Login'])->name('login');
+Route::view('/login', 'website.Login.Login');
 Route::post('/login', [AuthController::class, 'Authenticate'])->name('proses-Login');
+
+Route::get('/Register', [AuthController::class, 'Register'])->name('Register');
+Route::post('/proses-Register', [AuthController::class, 'proses_Register'])->name('proses_Register');
+
 Route::get('/logout', [AuthController::class, 'Logout']);
+
+Route::fallback(function () {
+    return view('website.Login.error');
+});
+
 // =================== Proses Authentikasi User =======================//
 
 
@@ -38,7 +48,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Admin', [AdminController::class, 'index']);
 
     // =================== Proses AI =======================//
-    Route::get('/Edit-Profile', [userController::class, 'Editprofile']);
     Route::get('/Analisa-Faktor-Stunting', [userController::class, 'Quisioner']);
     Route::post('/Hasil-proses', [userController::class, 'store'])->name('proses');
     Route::get('/hasil-solusi', [UserController::class, 'hasil'])->name('Hasil');
@@ -59,12 +68,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Data-Bidan', [AdminController::class, 'dataBidan']);
     Route::get('/Data-Kader', [AdminController::class, 'dataKader']);
     Route::get('/Data-Pengguna', [AdminController::class, 'dataPengguna']);
+    Route::get('/Chart', [AdminController::class, 'Chart']);
+
 
     Route::get('/Form/Bidan', [AdminController::class, 'create_Bidan']);
     Route::get('/Form/Kader', [AdminController::class, 'create_Kader']);
 
-    Route::post('/Input-Akun', [AdminController::class, 'store'])->name('input');
     Route::get('/Edit_Akun/{id}', [AdminController::class, 'edit_Akun'])->name('Edit_Akun');
+    Route::post('/Input-Akun', [AdminController::class, 'store'])->name('input');
+    Route::get('Edit-Profile/{iddataPengguna}/{Akun_idAkun}', [userController::class, 'Editprofile']);
+    Route::patch('/updateProfile/{iddataPengguna}/{Akun_idAkun}', [userController::class, 'updateProfile'])->name('updateProfile');
     Route::patch('/update_Akun/{id}', [AdminController::class, 'update_Akun'])->name('Update_Akun');
     Route::delete('/hapus_Akun/{id}', [AdminController::class, 'destroy_Akun'])->name('Hapus_Akun');
     // =================== Data Akun =======================//

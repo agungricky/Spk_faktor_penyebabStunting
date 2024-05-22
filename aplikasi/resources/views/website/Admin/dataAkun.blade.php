@@ -71,15 +71,15 @@
                                         @foreach ($dataAkun as $item)
                                             <tr>
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $item->Username }}</td>
-                                                <td>{{ $item->Password }}</td>
+                                                <td>{{ $item->username }}</td>
+                                                <td>{{ $item->password }}</td>
                                                 <td>{{ $item->Role }}</td>
                                                 <td>
-                                                    <form method="POST" action="{{ route('Hapus_Akun', ['id'=>$item->idAkun]) }}">
+                                                    <form method="POST" action="{{ route('Hapus_Akun', ['id'=> $item->id]) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <a class="btn btn-warning btn-sm" title="Edit Akun Bidan"
-                                                            href="{{ route('Edit_Akun', ['id' => $item->idAkun]) }}">
+                                                            href="{{ route('Edit_Akun', ['id' => $item->id]) }}">
                                                             <i class="fa-solid fa-pencil"></i>
                                                         </a>
                                                         &nbsp;

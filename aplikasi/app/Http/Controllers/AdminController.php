@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Akun;
 use App\Models\DataPengguna;
 use App\Models\dataSolusi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -19,7 +21,7 @@ class AdminController extends Controller
     public function index()
     {
         $dataLogin = Auth::user();
-        
+
         $query = dataSolusi::all();
         $bidan = Akun::where('Role', 'like', '%Bidan%')->get();
         $kader = Akun::where('Role', 'like', '%Kader%')->get();
@@ -27,8 +29,8 @@ class AdminController extends Controller
         $dataPengguna = DataPengguna::all();
         $banyakPengguna = DataPengguna::count();
 
-        return view('website.Admin.Dashboard', compact('query', 'bidan', 'kader', 'pengguna', 'dataPengguna','banyakPengguna'))
-        ->with('dataLogin', $dataLogin);;
+        return view('website.Admin.Dashboard', compact('query', 'bidan', 'kader', 'pengguna', 'dataPengguna', 'banyakPengguna'))
+            ->with('dataLogin', $dataLogin);
     }
 
 
@@ -40,14 +42,13 @@ class AdminController extends Controller
         $id = 'Bidan';
         $dataAkun = Akun::where('Role', 'like', '%Bidan%')->get();
         return view('website.Admin.dataAkun', compact('dataAkun', 'id'));
-
     }
 
     public function dataKader()
     {
         $id = "Kader";
         $dataAkun = Akun::where('Role', 'like', '%Kader%')->get();
-        return view('website.Admin.dataAkun', compact('dataAkun','id'));
+        return view('website.Admin.dataAkun', compact('dataAkun', 'id'));
     }
 
     public function dataPengguna()
@@ -57,6 +58,46 @@ class AdminController extends Controller
         return view('website.Admin.dataAkun', compact('dataAkun', 'id'));
     }
 
+    public function Chart()
+    {
+        // SELECT dp.Nama_ibu, hi.Fatror_penyebab, hi.Created_at
+        // FROM hasil_input hi
+        // JOIN (
+        //     SELECT dataPengguna_iddataPengguna, MAX(Created_at) AS terbaru
+        //     FROM hasil_input
+        //     GROUP BY dataPengguna_iddataPengguna
+        // ) subquery ON hi.dataPengguna_iddataPengguna = subquery.dataPengguna_iddataPengguna
+        // AND hi.Created_at = subquery.terbaru
+        // JOIN datapengguna dp ON hi.dataPengguna_iddataPengguna = dp.iddataPengguna;
+
+        $subquery = DB::table('hasil_input')
+            ->select('dataPengguna_iddataPengguna', DB::raw('MAX(Created_at) AS terbaru'))
+            ->groupBy('dataPengguna_iddataPengguna');
+
+        $results = DB::table('hasil_input as hi')
+            ->joinSub($subquery, 'subquery', function ($join) {
+                $join->on('hi.dataPengguna_iddataPengguna', '=', 'subquery.dataPengguna_iddataPengguna')
+                    ->on('hi.Created_at', '=', 'subquery.terbaru');
+            })
+            ->join('datapengguna as dp', 'hi.dataPengguna_iddataPengguna', '=', 'dp.iddataPengguna')
+            ->select('dp.Nama_ibu', 'hi.Fatror_penyebab', 'hi.Created_at')
+            ->get();
+        
+        $groupedResults = $results->groupBy('Fatror_penyebab')->map(function ($group) {
+            return $group->count();
+        });
+
+        $data = $groupedResults->toArray();
+
+        $banyakpengguna_input = $results->count();
+
+        $barChart = $results->groupBy(function($item) {
+            return Carbon::parse($item->Created_at)->format('d-m-Y');
+        })->map->count();
+
+        // dd($barChart);
+        return view('website.Admin.Chart', compact('data', 'results', 'banyakpengguna_input', 'barChart'));
+    }
 
     /**
      * Kontroler Untuk menampilkan Halaman Form
@@ -65,14 +106,12 @@ class AdminController extends Controller
     {
         $id = 'Bidan';
         return view('website.Admin.formAkun', compact('id'));
-
     }
 
     public function create_Kader()
     {
         $id = 'Kader';
         return view('website.Admin.formAkun', compact('id'));
-
     }
 
 
@@ -82,11 +121,12 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $Username = $request->username;
-        $Password = md5(sha1(md5($request->password)));
+        $Password = Hash::make($request->password);
+        $Email = $request->email;
         $Role = $request->role;
 
-        Akun::create(['Username'=> $Username, 'Password' => $Password, 'Role'=> $Role]);
-        return redirect('Data-'.$Role)->with('Success', 'Berhasil Menambahkan akun');
+        Akun::create(['email' => $Email, 'username' => $Username, 'password' => $Password, 'Role' => $Role]);
+        return redirect('Data-' . $Role)->with('Success', 'Berhasil Menambahkan akun');
     }
 
 
@@ -95,7 +135,7 @@ class AdminController extends Controller
      */
     public function edit_Akun(string $id)
     {
-        $query = Akun::where('idAkun', $id)->first();
+        $query = Akun::where('id', $id)->first();
         return view('website.Admin.formEdit_Akun', compact('query'));
     }
 
@@ -104,17 +144,19 @@ class AdminController extends Controller
      */
     public function update_Akun(Request $request, string $id)
     {
+        $email = $request->email;
         $username = $request->username;
         $password = $request->password;
         $role = $request->role;
 
-       Akun::where('idAkun', $id)->update([
-        'Username' => $username,
-        'Password' => $password,
-        'Role' => $role 
-       ]);
+        Akun::where('id', $id)->update([
+            'email' => $email,
+            'username' => $username,
+            'password' => $password,
+            'Role' => $role
+        ]);
 
-       return redirect('Admin');
+        return redirect('Admin');
     }
 
 
@@ -123,10 +165,12 @@ class AdminController extends Controller
      */
     public function Solusi()
     {
+        $dataLogin = Auth::user();
+
         $query = dataSolusi::all();
-        return view('website.Admin.Solusi', compact('query'));
+        return view('website.Admin.Solusi', compact('query', 'dataLogin'));
     }
-    
+
 
     /**
      * Kontroler Untuk Menampilkan pdf solusi

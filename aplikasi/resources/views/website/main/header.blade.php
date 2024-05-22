@@ -10,23 +10,23 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto me-3">
       <!-- Menu Notifikasi -->
       <li class="nav-item dropdown">
         <a class="nav-link" href="{{ url('logout') }}" onclick="return confirm('Anda Yakin akan Keluar?')">
           <span class="text-danger">Keluar | &nbsp;<i class="fa-solid fa-right-from-bracket"></i></span>
         </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <li class="nav-item">
+      </li> --}}
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </nav>
   <!-- /.navbar -->

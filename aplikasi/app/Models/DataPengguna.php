@@ -10,6 +10,7 @@ class DataPengguna extends Model
     use HasFactory;
     protected $table = 'datapengguna';
     protected $fillable = [
-        'iddataPengguna', 'Nik', 'Nama_anak', 'Usia', 'Nama_ibu', 'Alamat', 'Desa', 'Kecamatan', 'Rt', 'Rw', 'No_Hp', 'Nama_posyandu'
+        'iddataPengguna', 'Nik', 'Foto', 'Nama_anak', 'Usia', 
+        'Nama_ibu', 'Alamat', 'Desa', 'Kecamatan', 'Rt', 'Rw', 'No_Hp', 'Nama_posyandu', 'Akun_idAkun'
     ];
 }

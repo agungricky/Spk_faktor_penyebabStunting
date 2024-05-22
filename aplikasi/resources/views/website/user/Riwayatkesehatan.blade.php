@@ -29,6 +29,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Waktu Input</th>
                                 <th>Lingkungan</th>
                                 <th>Pola Asuh</th>
                                 <th>Kesehatan Anak</th>
@@ -46,13 +47,14 @@
                             @foreach ($query as $item)
                                 <tr>
                                     <td>{{$no++}}</td>
-                                    <td>{{$item->Lingkungan}}</td>
-                                    <td>{{$item->Pola_asuh}}</td>
-                                    <td>{{$item->Kesehatan_anak}}</td>
-                                    <td>{{$item->Faktor_kesehatan_ibu}}</td>
-                                    <td>{{$item->Pengetahuan_orangtua}}</td>
-                                    <td>{{$item->Kekurangan_Gizi_saat_Hamil}}</td>
-                                    <td>{{$item->Pola_Makanbalita}}</td>
+                                    <td>{{$item->Created_at}}</td>
+                                    <td>{{$item->Lingkungan}} %</td>
+                                    <td>{{$item->Pola_asuh}} %</td>
+                                    <td>{{$item->Kesehatan_anak}} %</td>
+                                    <td>{{$item->Faktor_kesehatan_ibu}} %</td>
+                                    <td>{{$item->Pengetahuan_orangtua}} %</td>
+                                    <td>{{$item->Kekurangan_Gizi_saat_Hamil}} %</td>
+                                    <td>{{$item->Pola_Makanbalita}} %</td>
                                     <td class="bg-danger">{{$item->Fatror_penyebab}}</td>
                                 </tr>
                             @endforeach

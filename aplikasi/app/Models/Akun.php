@@ -9,5 +9,5 @@ class Akun extends Model
 {
     use HasFactory;
     protected $table = 'akun';
-    protected $fillable = ['id','username','assword','Role'];
+    protected $fillable = ['id','email','username','password','Role'];
 }

@@ -26,15 +26,23 @@
                                 <h3 class="card-title">Data Akun</h3>
                             </div>
 
-                            <form action="{{ route('Update_Akun', ['id'=>$query->idAkun]) }}" method="POST">
+                            <form action="{{ route('Update_Akun', ['id'=>$query->id]) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <div class="card-body">
                                     <div class="form-group">
                                         <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                                            <input type="text" class="form-control" id="email"
+                                                aria-describedby="email" placeholder="Masukan Email" name="email" value="{{isset($query->email)? $query->email : ''}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Username</label>
                                             <input type="text" class="form-control" id="username"
-                                                aria-describedby="username" placeholder="Masukan Username" name="username" value="{{isset($query->Username)? $query->Username : ''}}">
+                                                aria-describedby="username" placeholder="Masukan Username" name="username" value="{{isset($query->username)? $query->username : ''}}">
                                         </div>
                                     </div>
 
@@ -42,7 +50,7 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Password</label>
                                             <input type="text" class="form-control" id="password"
-                                                aria-describedby="password" placeholder="Masukan Password" name="password" value="{{isset($query->Password)? $query->Password : ''}}">
+                                                aria-describedby="password" placeholder="Masukan Password" name="password" value="{{isset($query->password)? $query->password : ''}}">
                                         </div>
                                     </div>
 
