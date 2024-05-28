@@ -87,4 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Pengguna', [AdminController::class, 'Pengguna']);
     Route::delete('/hapus_Pengguna/{id}', [AdminController::class, 'destroy_Pengguna'])->name('Hapus');
     // =================== Data Pengguna =======================//
+
+    // =================== Hapus Riwayat Input =======================//
+    Route::delete('/hapus_RiwayatInput', [AdminController::class, 'Reset_Riwayat'])->name('ResetHasil');
+    // =================== Data Riwayat Input =======================//
+
+
 });

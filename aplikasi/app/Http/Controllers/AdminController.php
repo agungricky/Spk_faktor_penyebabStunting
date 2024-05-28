@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Akun;
 use App\Models\DataPengguna;
 use App\Models\dataSolusi;
+use App\Models\InputHasil;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +71,7 @@ class AdminController extends Controller
         // AND hi.Created_at = subquery.terbaru
         // JOIN datapengguna dp ON hi.dataPengguna_iddataPengguna = dp.iddataPengguna;
 
+        // Mengambil inputan terakhir dari pengguna {
         $subquery = DB::table('hasil_input')
             ->select('dataPengguna_iddataPengguna', DB::raw('MAX(Created_at) AS terbaru'))
             ->groupBy('dataPengguna_iddataPengguna');
@@ -80,9 +82,10 @@ class AdminController extends Controller
                     ->on('hi.Created_at', '=', 'subquery.terbaru');
             })
             ->join('datapengguna as dp', 'hi.dataPengguna_iddataPengguna', '=', 'dp.iddataPengguna')
-            ->select('dp.Nama_ibu', 'hi.Fatror_penyebab', 'hi.Created_at')
+            ->select('dp.Nama_ibu', 'dp.Nama_anak', 'hi.Fatror_penyebab', 'hi.Created_at')
             ->get();
-        
+        // Mengambil inputan terakhir dari pengguna }
+
         $groupedResults = $results->groupBy('Fatror_penyebab')->map(function ($group) {
             return $group->count();
         });
@@ -93,7 +96,7 @@ class AdminController extends Controller
 
         $barChart = $results->groupBy(function($item) {
             return Carbon::parse($item->Created_at)->format('d-m-Y');
-        })->map->count();
+        })->map->count()->sortKeys();
 
         // dd($barChart);
         return view('website.Admin.Chart', compact('data', 'results', 'banyakpengguna_input', 'barChart'));
@@ -272,4 +275,9 @@ class AdminController extends Controller
         Akun::where('idAkun', $id)->delete();
         return redirect('Admin')->with('success', 'Berhasil Menghapus data.');
     }
+
+    public function Reset_Riwayat(){
+        InputHasil::query()->delete();
+        return redirect()->back()->with('success', 'Semua hasil input pengguna telah dihapus.');
+    }    
 }

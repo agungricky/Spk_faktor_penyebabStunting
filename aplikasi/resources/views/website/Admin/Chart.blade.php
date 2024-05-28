@@ -37,12 +37,25 @@
                     </div>
 
                     <div class="col-12">
-                        <div class="card p-5">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <div class="card p-3">
+                            <form action="{{ route('ResetHasil') }}" method="POST"
+                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus semua hasil input pengguna?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-25 mb-3">Hapus Semua Hasil input
+                                    Pengguna</button>
+                            </form>
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama Orangtua</th>
+                                        <th scope="col">Nama Anak</th>
                                         <th scope="col">Faktor penyebab</th>
                                         <th scope="col">Tanggal Terakhir input</th>
                                     </tr>
@@ -55,6 +68,7 @@
                                         <tr>
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $item->Nama_ibu }}</td>
+                                            <td>{{ $item->Nama_anak }}</td>
                                             <td>{{ $item->Fatror_penyebab }}</td>
                                             <td>{{ $item->Created_at }}</td>
                                         </tr>

@@ -25,12 +25,7 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Ada 28 Pertanyaan yang Harus di isi ... |
-                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Informasi <i class="fa-solid fa-circle-info"></i>
-                                    </button>
-                                </h3>
+                                <h3 class="card-title">Ada 28 Pertanyaan yang Harus di isi ... </h3>
 
                             </div>
 
@@ -45,38 +40,39 @@
                                                 <span class="error text-danger mb-2 bg-danger px-2">
                                                     {{ $errors->first('p1') }}
                                                 </span>
-                                                <br>
                                             @endif
                                             <label>1. Apakah tempat tinggal saat ini dekat dengan
                                                 pencemaran udara seperti TPA, Asap dari
                                                 industri pabrik, dan Peternakan?</label>
                                             <br>
-                                            <div class="form-check form-check-inline ms-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p1" id="radio1.1" value="Sangat Benar"
-                                                    {{ old('p1') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio1.1">Sangat Benar (Jarak < 1 Meter
-                                                        )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p1" id="radio1.2" value="Benar"
-                                                    {{ old('p1') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio1.2">Benar (Jarak 2 - 3 Meter
-                                                    )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p1" id="radio1.3" value="Kurang Benar"
-                                                    {{ old('p1') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio1.3">Kurang Benar (Jarak 5 Meter
-                                                    )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p1" id="radio1.4" value="Tidak Benar"
-                                                    {{ old('p1') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio1.4">Tidak Benar (> 1 KM)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p1" id="radio1.1" value="A"
+                                                        {{ old('p1') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio1.1">A) Jarak 0 - 500
+                                                        Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p1" id="radio1.2" value="B"
+                                                        {{ old('p1') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio1.2">B) Jarak 500 - 1000
+                                                        Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p1" id="radio1.3" value="C"
+                                                        {{ old('p1') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio1.3">C) Jarak 1 - 2 Km
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p1" id="radio1.4" value="D"
+                                                        {{ old('p1') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio1.4">D) Jarak > 2 Km</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -86,31 +82,38 @@
                                             @if ($errors->has('p2'))
                                                 <span class="error text-danger mb-2 bg-danger px-2">
                                                     {{ $errors->first('p2') }}
-                                                </span>
-                                                <br>
+                                                </span><br>
                                             @endif
-                                            <label>2. Apakah rumah dekat dengan sungai dan
-                                                persawahan?</label> <br>
-                                            <div class="form-check form-check-inline ms-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p2" id="radio2.1" value="Sangat Benar"
-                                                    {{ old('p2') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio2.1">Sangat Benar (Jarak < 1 Meter)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p2" id="radio2.2" value="Benar" {{ old('p2') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio2.2">Benar (Jarak 2 - 3 Meter)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p2" id="radio2.3" value="Kurang Benar" {{ old('p2') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio2.3">Kurang Benar (Jarak 5 Meter)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p2" id="radio2.4" value="Tidak Benar" {{ old('p2') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio2.4">Tidak Benar (Jauh)</label>
+                                            <label>2. Apakah rumah dekat dengan sungai dan persawahan?</label> <br>
+
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p2" id="radio2.1" value="A"
+                                                        {{ old('p2') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio2.1">A) Jarak 0 - 250
+                                                        Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p2" id="radio2.2" value="B"
+                                                        {{ old('p2') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio2.2">B) Jarak 250 - 500
+                                                        Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p2" id="radio2.3" value="C"
+                                                        {{ old('p2') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio2.3">C) Jarak 500 - 1000
+                                                        Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p2" id="radio2.4" value="D"
+                                                        {{ old('p2') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio2.4">D) Jarak > 1 Km</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -123,28 +126,38 @@
                                                 </span>
                                                 <br>
                                             @endif
-                                            <label>3. Apakah tempat tinggal saat ini termasuk dalam
-                                                kategori 3T(terpencil, Terpinggirkan, dan
-                                                Tertinggal) yang jauh dari akses kesehatan?</label> <br>
-                                            <div class="form-check form-check-inline ms-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p3" id="radio3.1" value="Sangat Benar" {{ old('p3') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio3.1">Sangat Benar (Jarak > 5 Km )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p3" id="radio3.2" value="Benar" {{ old('p3') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio3.2">Benar (Jarak 3 - 4 Km)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p3" id="radio3.3" value="Kurang Benar" {{ old('p3') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio3.3">Kurang Benar (Jarak < 2 Km)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p3" id="radio3.4" value="Tidak Benar" {{ old('p3') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio3.4">Tidak Benar (Jarak < 1 Km)</label>
+                                            <label>3. Apakah tempat tinggal saat ini mudah dalam mengakses layanan kesehatan
+                                                ?</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p3" id="radio3.1" value="A"
+                                                        {{ old('p3') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio3.1">A) Sangat Sulit & Butuh
+                                                        Solusi
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p3" id="radio3.2" value="B"
+                                                        {{ old('p3') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio3.2">B) Sulit & Upaya
+                                                        Ekstra</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p3" id="radio3.3" value="C"
+                                                        {{ old('p3') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio3.3">C) Cukup Mudah &
+                                                        Beberapa Catatan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p3" id="radio3.4" value="D"
+                                                        {{ old('p3') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio3.4">D) Mudah &
+                                                        Lancar</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -158,26 +171,37 @@
                                                 <br>
                                             @endif
                                             <label>4. Apakah di sekitar rumah tidak terdapat tanaman
-                                                atau pohon?</label> <br>
-                                            <div class="form-check form-check-inline ms-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p4" id="radio4.1" value="Sangat Benar" {{ old('p4') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio4.1">Sangat Benar (Tidak ada pohon)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p4" id="radio4.2" value="Benar" {{ old('p3') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio4.2">Benar (Jarang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p4" id="radio4.3" value="Kurang Benar" {{ old('p3') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio4.3">Kurang Benar (Banyak Tanaman Hias)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p4" id="radio4.4" value="Tidak Benar" {{ old('p3') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio4.4">Tidak Benar (Banyak Pohon)</label>
+                                                atau pohon?</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p4" id="radio4.1" value="A"
+                                                        {{ old('p4') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio4.1">A) Tidak ada sama
+                                                        sekali
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p4" id="radio4.2" value="B"
+                                                        {{ old('p3') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio4.2">B) Ada Namun
+                                                        Jarang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p4" id="radio4.3" value="C"
+                                                        {{ old('p3') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio4.3">C) Ada beberapa tanaman
+                                                        kecil</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p4" id="radio4.4" value="D"
+                                                        {{ old('p3') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio4.4">D) Banyak
+                                                        Pohon & Tanaman</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -191,26 +215,36 @@
                                                 <br>
                                             @endif
                                             <label>5. Apakah saat ini anak di berikan susu formula
-                                                untuk alternatif pengganti ASI ?</label> <br>
-                                            <div class="form-check form-check-inline ms-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p5" id="radio5.1" value="Sangat Benar" {{ old('p5') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio5.1">Sangat Benar (Full Susu Formula )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p5" id="radio5.2" value="Benar" {{ old('p5') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio5.2">Benar (Susu Formula > Asi )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p5" id="radio5.3" value="Kurang Benar" {{ old('p5') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio5.3">Kurang Benar (Asi > Susu Formula)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p5" id="radio5.4" value="Tidak Benar">
-                                                <label class="form-check-label" for="radio5.4">Tidak Benar (Full Asi)</label>
+                                                untuk alternatif pengganti ASI, disaat usia anak diatas 6 Bulan ?</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p5" id="radio5.1" value="A"
+                                                        {{ old('p5') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio5.1">A) Hanya Susu
+                                                        Formula</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p5" id="radio5.2" value="B"
+                                                        {{ old('p5') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio5.2">B) Hanya Makanan Padat
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p5" id="radio5.3" value="C"
+                                                        {{ old('p5') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio5.3">C) Susu Formula &
+                                                        Makanan padat </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p5" id="radio5.4" value="D"
+                                                        {{ old('p5') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio5.4">D) Asi & Makanan
+                                                        Padat</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -223,27 +257,37 @@
                                                 </span>
                                                 <br>
                                             @endif
-                                            <label>6. Apakah kesibukan orang tua / ibu menghalangi untuk mengikuti posyandu secara rutin ?</label> <br>
+                                            <label>6. Apakah kesibukan orang tua, khususnya ibu, menjadi hambatan untuk
+                                                mengikuti kegiatan posyandu secara rutin?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p6" id="radio6.1" value="Sangat Benar" {{ old('p6') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio6.1">Sangat Benar (Kesibukan yang padat)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p6" id="radio6.2" value="Benar" {{ old('p6') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio6.2">Benar (Tidak Terlalu)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p6" id="radio6.3" value="Kurang Benar" {{ old('p6') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio6.3">Kurang Benar (Kadang-kadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p6" id="radio6.4" value="Tidak Benar" {{ old('p6') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio6.4">Tidak Benar (Tidak Sama sekali)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p6" id="radio6.1" value="A"
+                                                        {{ old('p6') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio6.1">A) kesibukan orangtua
+                                                        yang padat</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p6" id="radio6.2" value="B"
+                                                        {{ old('p6') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio6.2">B) Tidak
+                                                        Terlalu & ada faktor lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p6" id="radio6.3" value="C"
+                                                        {{ old('p6') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio6.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p6" id="radio6.4" value="D"
+                                                        {{ old('p6') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio6.4">D) Tidak Sama
+                                                        sekali</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -258,27 +302,35 @@
                                             @endif
                                             <label>7. Pada saat usia di bawah 6 bulan apakah ibu sudah
                                                 memberikan makanan pendamping asi ?</label> <br>
+                                                
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p7" id="radio7.1" value="A"
+                                                        {{ old('p7') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio7.1">A) Susu Formula & Makanan Padat</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p7" id="radio7.2" value="B"
+                                                        {{ old('p7') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio7.2">B) Asi dan Makanan Padat</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p7" id="radio7.3" value="C"
+                                                        {{ old('p7') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio7.3">C) Susu Formula dan Asi</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p7" id="radio7.4" value="D"
+                                                        {{ old('p7') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio7.4">D) Hanya
+                                                        ASI</label>
+                                                </div>
+                                            </div>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p7" id="radio7.1" value="Sangat Benar" {{ old('p7') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio7.1">Sangat Benar (makanan padat)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p7" id="radio7.2" value="Benar" {{ old('p7') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio7.2">Benar (Hanya susu formula)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p7" id="radio7.3" value="Kurang Benar" {{ old('p7') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio7.3">Kurang Benar (Kadang-kadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p7" id="radio7.4" value="Tidak Benar" {{ old('p7') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio7.4">Tidak Benar (Hanya ASI)</label>
-                                            </div>
                                         </div>
 
                                         {{-- 8 --}}
@@ -294,26 +346,34 @@
                                                 saat berinteraksi dengan anak selama waktu
                                                 bermain?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p8" id="radio8.1" value="Sangat Benar" {{ old('p8') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio8.1">Sangat Benar (Selalu)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p8" id="radio8.2" value="Benar" {{ old('p8') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio8.2">Benar (Sering)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p8" id="radio8.3" value="Kurang Benar" {{ old('p8') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio8.3">Kurang Benar (Memberi jarak > 1 Meter)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p8" id="radio8.4" value="Tidak Benar" {{ old('p8') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio8.4">Tidak Benar (Tidak Pernah)</label>
-                                            </div>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p8" id="radio8.1" value="A"
+                                                        {{ old('p8') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio8.1">A) Selalu Saat Bersama Anak</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p8" id="radio8.2" value="B"
+                                                        {{ old('p8') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio8.2">B) Sering Karna lupa</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p8" id="radio8.3" value="C"
+                                                        {{ old('p8') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio8.3">C) Memberi jarak
+                                                        Lebih dari 1 Meter</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p8" id="radio8.4" value="D"
+                                                        {{ old('p8') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio8.4">D) Tidak
+                                                        Pernah</label>
+                                                </div>
+                                            </div>     
                                         </div>
 
                                         {{-- 9 --}}
@@ -328,26 +388,32 @@
                                             <label>9. Apakah anak barusaja mengalami sakit atau
                                                 demam?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p9" id="radio9.1" value="Sangat Benar" {{ old('p9') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio9.1">Sangat Benar ( < 1 Minggu)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p9" id="radio9.2" value="Benar" {{ old('p9') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio9.2">Benar ( > 1 - 2 Minggu)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p9" id="radio9.3" value="Kurang Benar" {{ old('p9') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio9.3">Kurang Benar ( > 1 Bulan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p9" id="radio9.4" value="Tidak Benar" {{ old('p9') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio9.4">Tidak Benar (Tidak Sakit)</label>
-                                            </div>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p9" id="radio9.1" value="A"
+                                                        {{ old('p9') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio9.1">A) Demam disertai Gejala Lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p9" id="radio9.2" value="B"
+                                                        {{ old('p9') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio9.2">B) badan panas > 38C</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p9" id="radio9.3" value="C"
+                                                        {{ old('p9') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio9.3">C) Demam Berulang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p9" id="radio9.4" value="D"
+                                                        {{ old('p9') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio9.4">D) Lebih dari 3 Hari</label>
+                                                </div>
+                                            </div>     
                                         </div>
 
                                         {{-- 10 --}}
@@ -362,25 +428,35 @@
                                             <label>10. Apakah anak mempunyai nafsu makan yang
                                                 kurang bagus saat ini ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p10" id="radio10.1" value="Sangat Benar" {{ old('p10') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio10.1">Sangat Benar (Sulit makan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p10" id="radio10.2" value="Benar" {{ old('p10') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio10.2">Benar (pilih-pilih makanan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p10" id="radio10.3" value="Kurang Benar" {{ old('p10') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio10.3">Kurang Benar (Biasa)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p10" id="radio10.4" value="Tidak Benar" {{ old('p10') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio10.4">Tidak Benar (Nafsu makan baik)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p10" id="radio10.1" value="A"
+                                                        {{ old('p10') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio10.1">A) Sulit untuk
+                                                        makan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p10" id="radio10.2" value="B"
+                                                        {{ old('p10') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio10.2">B) suka pilih-pilih
+                                                        makanan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p10" id="radio10.3" value="C"
+                                                        {{ old('p10') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio10.3">C)
+                                                    Terdapat gangguan pencernaan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p10" id="radio10.4" value="D"
+                                                        {{ old('p10') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio10.4">D) Nafsu makan
+                                                        baik</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -394,27 +470,33 @@
                                                 <br>
                                             @endif
                                             <label>11. Apakah anak kerap menangis dalam kurun waktu
-                                                yang lumayan lama ?</label> <br>
+                                                yang singkat ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p11" id="radio11.1" value="Sangat Benar" {{ old('p11') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio11.1">Sangat Benar (> 1 Jam)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p11" id="radio11.2" value="Benar" {{ old('p11') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio11.2">Benar (< 30 Menit)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p11" id="radio11.3" value="Kurang Benar" {{ old('p11') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio11.3">Kurang Benar (sebentar namun sering)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p11" id="radio11.4" value="Tidak Benar" {{ old('p11') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio11.4">Tidak Benar ( < 10 Menit)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p11" id="radio11.1" value="A"
+                                                        {{ old('p11') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio11.1">A) Akhir-akhir ini sering rewel</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p11" id="radio11.2" value="B"
+                                                        {{ old('p11') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio11.2">B) Rewel & ada faktor lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p11" id="radio11.3" value="C"
+                                                        {{ old('p11') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio11.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p11" id="radio11.4" value="D"
+                                                        {{ old('p11') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio11.4">D) Manangis Normal</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -429,26 +511,33 @@
                                             @endif
                                             <label>12. Apakah anak sulit untuk tidur ? </label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p12" id="radio12.1" value="Sangat Benar" {{ old('p12') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio12.1">Sangat Benar (Anak cenderung bermain)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p12" id="radio12.1" value="A"
+                                                        {{ old('p12') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio12.1">A) Susah tidur & ada faktor lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p12" id="radio12.2" value="B"
+                                                        {{ old('p12') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio12.2">B) anak sering
+                                                        terbangun</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p12" id="radio12.3" value="C"
+                                                        {{ old('p12') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio12.3">C) Anak
+                                                        cenderung suka bermain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p12" id="radio12.4" value="D" {{ old('p12') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio12.4">D) Waktu Tidur anak Baik</label>
+                                                </div>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p12" id="radio12.2" value="Benar" {{ old('p12') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio12.2">Benar (anak sering terbangun )</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p12" id="radio12.3" value="Kurang Benar" {{ old('p12') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio12.3">Kurang Benar (Normal)</label>
-                                            </div>
-                                            {{-- <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p12" id="radio12.4" value="Tidak Benar" disabled>
-                                                <label class="form-check-label" for="radio12.4">Tidak Benar ()</label>
-                                            </div> --}}
                                         </div>
 
                                         {{-- 13 --}}
@@ -464,25 +553,31 @@
                                                 mengkonsultasikan kesehatan dengan dokter,
                                                 bidan atau tenaga medis lainnya, dalam kurun waktu 9 Bulan ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p13" id="radio13.1" value="Sangat Benar" {{ old('p13') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio13.1">Sangat Benar (Tidak Pernah)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p13" id="radio13.2" value="Benar" {{ old('p13') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio13.2">Benar (< 3 Kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p13" id="radio13.3" value="Kurang Benar" {{ old('p13') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio13.3">Kurang Benar (< 5 Kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p13" id="radio13.4" value="Tidak Benar" {{ old('p13') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio13.4">Tidak Benar (Selalu Rutin)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p13" id="radio13.1" value="A"
+                                                        {{ old('p13') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio13.1">A)Jarang sekali (< 1 kali)</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p13" id="radio13.2" value="B"
+                                                        {{ old('p13') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio13.2">B) Jarang (1-3 kali)</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p13" id="radio13.3" value="C"
+                                                        {{ old('p13') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio13.3">C) Sedang (4-6 kali)</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p13" id="radio13.4" value="D"
+                                                        {{ old('p13') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio13.4">D) Rutin (> 8 kali)</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -498,25 +593,34 @@
                                             <label>14. Apakah saat hamil ibu mempunyai nafsu makan
                                                 yang kurang bagus ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p14" id="radio14.1" value="Sangat Benar" {{ old('p14') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio14.1">Sangat Benar (Tidak nafsu makan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p14" id="radio14.2" value="Benar" {{ old('p14') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio14.2">Benar (pilih-pilih makanan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p14" id="radio14.3" value="Kurang Benar" {{ old('p14') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio14.3">Kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p14" id="radio14.4" value="Tidak Benar" {{ old('p14') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio14.4">Tidak Benar (Nafsu makan baik)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p14" id="radio14.1" value="A"
+                                                        {{ old('p14') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio14.1">A) Tidak nafsu
+                                                        makan & ada faktor lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p14" id="radio14.2" value="B"
+                                                        {{ old('p14') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio14.2">B) pilih-pilih
+                                                        makanan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p14" id="radio14.3" value="C"
+                                                        {{ old('p14') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio14.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p14" id="radio14.4" value="D"
+                                                        {{ old('p14') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio14.4">D) Nafsu makan
+                                                        baik</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -533,25 +637,33 @@
                                                 seperti kelelahan, kulit pucat, pusing, dan denyut
                                                 jantung cepat pada saat proses kehamilan?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p15" id="radio15.1" value="Sangat Benar" {{ old('p15') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio15.1">Sangat Benar (Sering)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p15" id="radio15.2" value="Benar" {{ old('p15') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio15.2">Benar (Hanya Kelelahan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p15" id="radio15.3" value="Kurang Benar" {{ old('p15') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio15.3">Kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p15" id="radio15.4" value="Tidak Benar" {{ old('p15') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio15.4">Tidak Benar (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p15" id="radio15.1" value="A"
+                                                        {{ old('p15') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio15.1">A) Sering Terjadi</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p15" id="radio15.2" value="B"
+                                                        {{ old('p15') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio15.2">B) Hanya
+                                                        Kelelahan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p15" id="radio15.3" value="C"
+                                                        {{ old('p15') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio15.3">C) 
+                                                        Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p15" id="radio15.4" value="D"
+                                                        {{ old('p15') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio15.4">D) Tidak pernah</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -567,26 +679,34 @@
                                             <label>16. Apakah pernah terjadi masalah kesehatan selama
                                                 kehamilan yang berdampak pada kondisi
                                                 kesehatan ibu secara kronis?</label> <br>
-
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p16" id="radio16.1" value="Sangat Benar" {{ old('p16') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio16.1">Sangat Benar (>3 Kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p16" id="radio16.2" value="Benar"  {{ old('p16') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio16.2">Benar (2-3 kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p16" id="radio16.3" value="Kurang Benar"  {{ old('p16') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio16.3">Kurang Benar (1 Kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p16" id="radio16.4" value="Tidak Benar"  {{ old('p16') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio16.4">Tidak Benar (Tidak Pernah)</label>
+                                            
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p16" id="radio16.1" value="A"
+                                                        {{ old('p16') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio16.1">A) Mempunyai Riwayat penyakit kronis</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p16" id="radio16.2" value="B"
+                                                        {{ old('p16') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio16.2">B) Pernah Terjadi 2-3 kali</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p16" id="radio16.3" value="C"
+                                                        {{ old('p16') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio16.3">C) pernah Tejadi 1
+                                                        Kali</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p16" id="radio16.4" value="D"
+                                                        {{ old('p16') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio16.4">D) Tidak
+                                                        Pernah</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -600,29 +720,38 @@
                                                 <br>
                                             @endif
                                             <label>17. Apakah menurut orang tua, pemberian ASI
-                                                eksklusif selama 6 bulan pertama, penting atau bisa di gantikan dengan alternatif
+                                                eksklusif selama 6 bulan pertama, penting atau bisa di gantikan dengan
+                                                alternatif
                                                 susu formula menjadi pilihan yang sesuai?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p17" id="radio17.1" value="Sangat Benar"  {{ old('p17') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio17.1">Sangat Benar (Bisa digantikan)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p17" id="radio17.1" value="A"
+                                                        {{ old('p17') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio17.1">A) Bisa
+                                                        digantikan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p17" id="radio17.2" value="B"
+                                                        {{ old('p17') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio17.2">B) dijadikan
+                                                        selingan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p17" id="radio17.3" value="C"
+                                                        {{ old('p17') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio17.3">C) Tidak Bisa
+                                                        digantikan</label>
+                                                </div>
+                                                {{-- <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p17" id="radio17.4" value="Tidak Benar">
+                                                    <label class="form-check-label" for="radio17.4">Tidak Benar (Jauh)</label>
+                                                </div> --}}
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p17" id="radio17.2" value="Benar"  {{ old('p17') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio17.2">Benar (dijadikan selingan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p17" id="radio17.3" value="Kurang Benar" {{ old('p17') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio17.3">Kurang Benar (Tidak Bisa digantikan)</label>
-                                            </div>
-                                            {{-- <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p17" id="radio17.4" value="Tidak Benar">
-                                                <label class="form-check-label" for="radio17.4">Tidak Benar (Jauh)</label>
-                                            </div> --}}
                                         </div>
 
                                         {{-- 18 --}}
@@ -637,26 +766,31 @@
                                             <label>18. Apakah menurut orang tua, imunisasi pada anak
                                                 dianggap opsional atau tidak wajib?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p18" id="radio18.1" value="Sangat Benar" {{ old('p18') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio18.1">Sangat Benar (Tidak Perlu)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p18" id="radio18.1" value="A"
+                                                        {{ old('p18') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio18.1">A) Tidak Perlu</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p18" id="radio18.2" value="B"
+                                                        {{ old('p18') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio18.2">B) Boleh Sesekali</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p18" id="radio18.3" value="C"
+                                                        {{ old('p18') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio18.3">C) Perlu Namun Ada Faktor lain</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p18" id="radio18.4" value="D" {{ old('p18') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio18.4">D) Imunisai Wajib</label>
+                                                </div>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p18" id="radio18.2" value="Benar" {{ old('p18') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio18.2">Benar (Kadang-kadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p18" id="radio18.3" value="Kurang Benar" {{ old('p18') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio18.3">Kurang Benar (Wajib imunisasi)</label>
-                                            </div>
-                                            {{-- <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p18" id="radio18.4" value="Tidak Benar">
-                                                <label class="form-check-label" for="radio18.4">Tidak Benar (Jauh)</label>
-                                            </div> --}}
                                         </div>
 
                                         {{-- 19 --}}
@@ -670,28 +804,36 @@
                                             @endif
                                             <label>19. Apakah menurut orang tua pemberian makanan
                                                 pendamping sejak dini saat anak berusia kurang
-                                                dari 6 bulan harus di lakukan?</label> <br>
+                                                dari 6 bulan boleh di lakukan?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p19" id="radio19.1" value="Sangat Benar" {{ old('p19') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio19.1">Sangat Benar (Pemberian Makanan padat)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p19" id="radio19.1" value="A"
+                                                        {{ old('p19') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio19.1">A) Boleh, Pemberian
+                                                        Makanan padat</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p19" id="radio19.2" value="B"
+                                                        {{ old('p19') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio19.2">B) Boleh, Pemberian susu
+                                                        formula</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p19" id="radio19.3" value="C"
+                                                        {{ old('p19') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio19.3">C) Tidak Boleh, Hanya
+                                                        Asi</label>
+                                                </div>
+                                                {{-- <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p19" id="radio19.4" value="Tidak Benar">
+                                                    <label class="form-check-label" for="radio19.4">Tidak Benar ()</label>
+                                                </div> --}}
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p19" id="radio19.2" value="Benar" {{ old('p19') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio19.2">Benar (Pemberian susu formula)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p19" id="radio19.3" value="Kurang Benar" {{ old('p19') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio19.3">Kurang Benar (Hanya Asi)</label>
-                                            </div>
-                                            {{-- <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p19" id="radio19.4" value="Tidak Benar">
-                                                <label class="form-check-label" for="radio19.4">Tidak Benar ()</label>
-                                            </div> --}}
                                         </div>
 
                                         {{-- 20 --}}
@@ -708,25 +850,34 @@
                                                 tenaga kesehatan tentang tumbuh kembang anak
                                                 mereka?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p20" id="radio20.1" value="Sangat Benar" {{ old('p20') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio20.1">Sangat Benar (Tidak ada)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p20" id="radio20.2" value="Benar" {{ old('p20') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio20.2">Benar (Sangat kurang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p20" id="radio20.3" value="Kurang Benar" {{ old('p20') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio20.3">Kurang Benar (Cukup)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p20" id="radio20.4" value="Tidak Benar" {{ old('p20') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio20.4">Tidak Benar (Sangat tercukupi)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p20" id="radio20.1" value="A"
+                                                        {{ old('p20') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio20.1">A) Tidak pernah
+                                                        ada sosialisasi</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p20" id="radio20.2" value="B"
+                                                        {{ old('p20') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio20.2">B) Sangat
+                                                        kurang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p20" id="radio20.3" value="C"
+                                                        {{ old('p20') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio20.3">C) Cukup</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p20" id="radio20.4" value="D"
+                                                        {{ old('p20') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio20.4">D) Sangat
+                                                        tercukupi</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -742,25 +893,34 @@
                                             <label>21. Apakah selama kehamilan, ibu hamil cenderung
                                                 kurang suka untuk mengonsumsi buah segar?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p21" id="radio21.1" value="Sangat Benar" {{ old('p21') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio21.1">Sangat Benar (Sama sekali tidak suka)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p21" id="radio21.2" value="Benar" {{ old('p21') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio21.2">Benar (Kurang begitu suka)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p21" id="radio21.3" value="Kurang Benar" {{ old('p21') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio21.3">Kurang Benar (terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p21" id="radio21.4" value="Tidak Benar" {{ old('p21') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio21.4">Tidak Benar (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p21" id="radio21.1" value="A"
+                                                        {{ old('p21') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio21.1">A) Sama sekali
+                                                        tidak suka</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p21" id="radio21.2" value="B"
+                                                        {{ old('p21') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio21.2">B) Kurang begitu
+                                                        suka</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p21" id="radio21.3" value="C"
+                                                        {{ old('p21') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio21.3">C) 
+                                                        terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p21" id="radio21.4" value="D"
+                                                        {{ old('p21') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio21.4">D) Suka Buah Segar</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -777,25 +937,32 @@
                                                 mengonsumsi makanan instan dari pada sumber
                                                 protein seperti tempe, tahu, daging, dan telur?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p22" id="radio22.1" value="Sangat Benar" {{ old('p22') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio22.1">Sangat Benar (Hampir selalu)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p22" id="radio22.2" value="Benar" {{ old('p22') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio22.2">Benar (Sering)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p22" id="radio22.3" value="Kurang Benar" {{ old('p22') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio22.3">Kurang Benar (terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p22" id="radio22.4" value="Tidak Benar" {{ old('p22') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio22.4">Tidak Benar (Tidak suka)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p22" id="radio22.1" value="A"
+                                                        {{ old('p22') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio22.1">A) Hampir
+                                                        selalu makanan instan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p22" id="radio22.2" value="B"
+                                                        {{ old('p22') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio22.2">B) Sering </label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p22" id="radio22.3" value="C"
+                                                        {{ old('p22') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio22.3">C) terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p22" id="radio22.4" value="D"
+                                                        {{ old('p22') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio22.4">d) Tidak suka makanan instan</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -810,26 +977,34 @@
                                             @endif
                                             <label>23. Apakah saat hamil ibu hamil kurang suka
                                                 mengkonsumsi sayuran segar ?</label> <br>
-
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p23" id="radio23.1" value="Sangat Benar" {{ old('p23') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio23.1">Sangat Benar (Sagat tidak suka)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p23" id="radio23.2" value="Benar" {{ old('p23') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio23.2">Benar (Kurang Bagitu suka)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p23" id="radio23.3" value="Kurang Benar" {{ old('p23') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio23.3">Kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p23" id="radio23.4" value="Tidak Benar" {{ old('p23') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio23.4">Tidak Benar (Normal)</label>
+                                            
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p23" id="radio23.1" value="A"
+                                                        {{ old('p23') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio23.1">A) Sagat tidak
+                                                        suka</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p23" id="radio23.2" value="B"
+                                                        {{ old('p23') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio23.2">B) Kurang Bagitu
+                                                        suka</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p23" id="radio23.3" value="C"
+                                                        {{ old('p23') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio23.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p23" id="radio23.4" value="D"
+                                                        {{ old('p23') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio23.4">D) Suka sayuran segar</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -846,25 +1021,33 @@
                                                 mengkonsumsi karbo hidrat seperti nasi, roti, dan
                                                 karbohidrat lainnya ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p24" id="radio24.1" value="Sangat Benar" {{ old('p24') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio24.1">Sangat Benar (Tidak suka)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p24" id="radio24.2" value="Benar" {{ old('p24') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio24.2">Benar (pilih-pilih makanan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p24" id="radio24.3" value="Kurang Benar" {{ old('p24') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio24.3">Kurang Benar (terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p24" id="radio24.4" value="Tidak Benar" {{ old('p24') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio24.4">Tidak Benar (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p24" id="radio24.1" value="A"
+                                                        {{ old('p24') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio24.1">A) Tidak
+                                                        suka</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p24" id="radio24.2" value="B"
+                                                        {{ old('p24') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio24.2">B) pilih-pilih
+                                                        makanan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p24" id="radio24.3" value="C"
+                                                        {{ old('p24') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio24.3">C) terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p24" id="radio24.4" value="D"
+                                                        {{ old('p24') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio24.4">D) Suka</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -877,27 +1060,36 @@
                                                 </span>
                                                 <br>
                                             @endif
-                                            <label>25. Apakah ibu hamil memberikan ASI kurang dari 8-12 kali sehari pada anak yang belum mendapatkan MPASI (Makanan Pendamping ASI)?</label> <br>
+                                            <label>25. Berapa kali ibu memberikan ASI dalam sehari untuk
+                                                anak yang belum mendapatkan MPASI (Makanan Pendamping ASI)?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p25" id="radio25.1" value="Sangat Benar" {{ old('p25') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio25.1">Sangat Benar (8-12 kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p25" id="radio25.2" value="Benar" {{ old('p25') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio25.2">Benar (5-7 Kali)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p25" id="radio25.3" value="Kurang Benar" {{ old('p25') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio25.3">Kurang Benar (6-3)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p25" id="radio25.4" value="Tidak Benar" {{ old('p25') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio25.4">Tidak Benar (1-2 Kali)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p25" id="radio25.1" value="A"
+                                                        {{ old('p25') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio25.1">A) Kurang dari 8
+                                                        kali sehari</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p25" id="radio25.2" value="B"
+                                                        {{ old('p25') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio25.2">B) 8-10 kali sehari</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p25" id="radio25.3" value="C"
+                                                        {{ old('p25') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio25.3">C) 11-12 kali sehari</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p25" id="radio25.4" value="D"
+                                                        {{ old('p25') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio25.4">D) Lebih dari 12
+                                                        Kali sehari</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -912,25 +1104,33 @@
                                             @endif
                                             <label>26. Apakah anak sulit untuk di suruh makan ?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p26" id="radio26.1" value="Sangat Benar" {{ old('p26') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio26.1">Sangat Benar (Sangat Sulit)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p26" id="radio26.2" value="Benar" {{ old('p26') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio26.2">Benar (Pilih-pilih makanan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p26" id="radio26.3" value="Kurang Benar" {{ old('p26') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio26.3">Kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p26" id="radio26.4" value="Tidak Benar" {{ old('p26') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio26.4">Tidak Benar (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p26" id="radio26.1" value="A"
+                                                        {{ old('p26') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio26.1">A) Sangat
+                                                        Sulit</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p26" id="radio26.2" value="B"
+                                                        {{ old('p26') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio26.2">B) Pilih-pilih
+                                                        makanan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p26" id="radio26.3" value="C"
+                                                        {{ old('p26') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio26.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p26" id="radio26.4" value="D"
+                                                        {{ old('p26') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio26.4">D) Mudah</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -946,25 +1146,33 @@
                                             <label>27. Pada saat usia 6-24 bulan Apakah anak tidak
                                                 suka makan sayur?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p27" id="radio27.1" value="Sangat Benar" {{ old('p27') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio27.1">Sangat Benar (Hampir tidak mau)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p27" id="radio27.2" value="Benar" {{ old('p27') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio27.2">Benar (pilih-pilih makanan)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p27" id="radio27.3" value="Kurang Benar" {{ old('p27') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio27.3">kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p27" id="radio27.4" value="Tidak Benar" {{ old('p27') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio27.4">Tidak Benar (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p27" id="radio27.1" value="A"
+                                                        {{ old('p27') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio27.1">A) Hampir tidak
+                                                        mau</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p27" id="radio27.2" value="B"
+                                                        {{ old('p27') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio27.2">B) pilih-pilih
+                                                        makanan</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p27" id="radio27.3" value="C"
+                                                        {{ old('p27') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio27.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p27" id="radio27.4" value="D"
+                                                        {{ old('p27') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio27.4">D) Suka</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -982,26 +1190,33 @@
                                                 mencegah alergi atau masalah kesehatan
                                                 lainnya?</label> <br>
 
-                                            <div class="form-check form-check-inline ps-3">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p28" id="radio28.1" value="Sangat Benar" {{ old('p28') == 'Sangat Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio28.1">Sangat Benar (anak memiliki alergi)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p28" id="radio28.2" value="Benar" {{ old('p28') == 'Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio28.2">Benar (tidak menyukai makanan tertentu.)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p28" id="radio28.3" value="Kurang Benar" {{ old('p28') == 'Kurang Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio28.3">Kurang Benar (Terkadang)</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input border border-primary" type="radio"
-                                                    name="p28" id="radio28.4" value="Tidak Benar" {{ old('p28') == 'Tidak Benar' ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="radio28.4">Tidak Benar
-                                                    (Normal)</label>
+                                            <div class="d-flex flex-column flex-sm-row justify-content-evenly">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p28" id="radio28.1" value="A"
+                                                        {{ old('p28') == 'A' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio28.1">A) anak
+                                                        memiliki alergi</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p28" id="radio28.2" value="B"
+                                                        {{ old('p28') == 'B' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio28.2">B) tidak menyukai
+                                                        makanan tertentu.</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p28" id="radio28.3" value="C"
+                                                        {{ old('p28') == 'C' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio28.3">C) Terkadang</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border border-primary" type="radio"
+                                                        name="p28" id="radio28.4" value="D"
+                                                        {{ old('p28') == 'D' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="radio28.4">D) Tidak ada</label>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -1021,29 +1236,5 @@
                 </div>
             </div>
         </section>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pemberitahuan</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Nilai inputan :</p>
-                    <ul>
-                        <li>Sangat Benar</li>
-                        <li>Benar</li>
-                        <li>Kurang Benar</li>
-                        <li>Tidak Benar</li>
-                    </ul>
-                    <span>Tidak mencerminkan jawaban yang Benar atau salah, Melainkan jawaban yang mencerminkan dengan
-                        kondisi atau situasi yang ada</span>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection

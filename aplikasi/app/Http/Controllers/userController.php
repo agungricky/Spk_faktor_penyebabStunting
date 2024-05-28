@@ -158,16 +158,16 @@ class userController extends Controller
 
         for ($i = 0; $i < count($jawaban); $i++) {
             switch ($jawaban[$i]) {
-                case 'Sangat Benar':
+                case 'A':
                     $jawaban[$i] = 4;
                     break;
-                case 'Benar':
+                case 'B':
                     $jawaban[$i] = 3;
                     break;
-                case 'Kurang Benar':
+                case 'C':
                     $jawaban[$i] = 2;
                     break;
-                case 'Tidak Benar':
+                case 'D':
                     $jawaban[$i] = 1;
                     break;
                 default:
