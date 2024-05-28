@@ -8,6 +8,7 @@ use App\Models\InputHasil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Storage;
 
 class userController extends Controller
 {
@@ -44,7 +45,16 @@ class userController extends Controller
      */
     public function updateProfile(Request $request, string $iddataPengguna, string $Akun_idAkun)
     {
-        $foto = DataPengguna::where('iddataPengguna', $iddataPengguna)->pluck('foto')->first();
+        $file = $request->file('foto');
+        $extension = $file->getClientOriginalExtension();
+        $nama_foto = $request->nama_anak. '.' . $extension;
+
+        if (Storage::exists($file)) {
+            !unlink($file);
+            $file->move('public/Register_image', $nama_foto);
+        } else {
+            $file->move('public/Register_image', $nama_foto);
+        }
 
         Akun::where('id', $Akun_idAkun)->update([
             'username' => $request->username,
@@ -54,7 +64,7 @@ class userController extends Controller
 
         DataPengguna::where('iddataPengguna', $iddataPengguna)->update([
             'Nik' => $request->nik,
-            'Foto' => isset($request->foto) ? $request->foto : $foto,
+            'Foto' => $nama_foto,
             'Nama_anak' => $request->nama_anak,
             'Usia' => $request->usia,
             'Nama_ibu' => $request->nama_ibu,
