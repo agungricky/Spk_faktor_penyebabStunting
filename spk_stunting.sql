@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Bulan Mei 2024 pada 15.12
+-- Waktu pembuatan: 14 Agu 2024 pada 04.12
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -43,12 +43,21 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id`, `email`, `username`, `password`, `Role`, `remember_token`, `Created_at`, `Updated_at`) VALUES
-(1, 'irma@gmail.com', 'Keyla ayu', '$2y$10$QophqUjagymBKwUq0RvGbu96285kq.uBxQkWDSK3wW1q/8Itw0AMm', 'Pengguna', NULL, '2024-05-16 12:54:30', '2024-05-16 13:35:32'),
-(2, 'bekti@gmail.com', 'Bekti', '$2y$10$QophqUjagymBKwUq0RvGbu96285kq.uBxQkWDSK3wW1q/8Itw0AMm', 'Bidan', NULL, '2024-05-16 13:05:07', '2024-05-16 13:05:07'),
+(2, 'Rina@gmail.com', 'Rina', '$2y$10$QophqUjagymBKwUq0RvGbu96285kq.uBxQkWDSK3wW1q/8Itw0AMm', 'Bidan', NULL, '2024-05-16 13:05:07', '2024-07-23 12:43:37'),
 (3, 'Rida@gmail.com', 'Rida', '$2y$10$GNYblyAplMolT/kqNzEDmOzSAjzfhqS/KTeXB0ZLwHSbOkXVWdkoC', 'Kader', NULL, '2024-05-16 13:15:49', '2024-05-28 13:11:37'),
-(4, 'agungricky07@gmail.com', 'Ricky', '$2y$10$Nx.YMCy.Pz9HDm8n6mz/KeCiLChfjWbXjfhxJxf.YaCFP5vwg5A0G', 'Pengguna', NULL, '2024-05-16 13:56:44', '2024-05-28 11:43:33'),
-(8, 'har@gmail.com', 'Harmadi', '$2y$10$U9DrENMSeVsVuWcSXGwis.9C/UbIe3/pjnqyxL2SRnFTDx7VxgI2O', 'Pengguna', NULL, '2024-05-16 14:06:05', '2024-05-16 14:06:05'),
-(9, 'pipit@gmail.com', 'Alfariza', '$2y$10$fDDYgI92hQWqY.z3Y3x5UeLzI28.MfMTmWORLKEvSwVE5YdkKfXhW', 'Pengguna', NULL, '2024-05-17 13:05:53', '2024-05-17 13:05:53');
+(18, 'wiwik@gmail.com', 'Wiwik', '$2y$10$5vRaZb2R06dd4J3RXzEGfO8flSDii8nOMRhU4nDUgPHWXjS4imkKq', 'Pengguna', NULL, '2024-07-23 12:59:10', '2024-07-23 12:59:10'),
+(19, 'Tiyas@gmail.com', 'Tiyas', '$2y$10$bwhNl044QxL9c7qxeYJuH.3pHJe/LDYmIKWZBV7Vgm6TO2M8ZMSBW', 'Pengguna', NULL, '2024-07-23 13:03:32', '2024-07-23 13:04:36'),
+(20, 'Erma@gmail.com', 'Ermaa', '$2y$10$3QvGWmAK11kEHd8T.gbv1Os.NhazCyItvNRBZ4urgIT1ptOq118xy', 'Pengguna', NULL, '2024-07-23 13:09:29', '2024-07-23 13:09:29'),
+(21, 'Pipit@gmail.com', 'Pipit', '$2y$10$TjdZzFldKgZPA2S5JG5IYOX/1UfVW2hOYGhYMZAGxFdZL9nt7qdem', 'Pengguna', NULL, '2024-07-23 13:13:16', '2024-07-23 13:13:16'),
+(27, 'Gafi@gmail.com', 'Ghafi', '$2y$10$wBxgAA8uI98GDhnJGvB5QOVKTPsnKl8WCwtg38Ufgi0nbBSYTo99C', 'Pengguna', NULL, '2024-07-23 13:27:23', '2024-07-23 13:27:23'),
+(28, 'Rahma@gmail.com', 'Rahma', '$2y$10$WvLUIdTukqdofgMiXs185eQd1b/gYiqdNDl7MhxlPVF/1lq99U3yy', 'Pengguna', NULL, '2024-07-23 13:31:31', '2024-07-23 13:31:31'),
+(29, 'Enik@gmail.com', 'Enikk', '$2y$10$04p.Im7ZF7uw7RrOEiJvSOyyuoU/01U8JrEPZ2mfwmfh6HjDxD5hu', 'Pengguna', NULL, '2024-07-23 13:36:20', '2024-07-23 13:36:20'),
+(30, 'Elva@gmail.com', 'Ellva', '$2y$10$ouQEclcT/C5BscVUb.MxseisESbbVMQri2Tnm5SiumqHSXVk95OXm', 'Pengguna', NULL, '2024-07-23 13:40:16', '2024-07-23 13:40:16'),
+(31, 'Wiwin@gmail.com', 'Wiwin', '$2y$10$o/spd5KPw9LsRgNOwUTrbu4GAdMLCe7E.w8xKCtPL/PWN71Nlpxfy', 'Pengguna', NULL, '2024-07-23 13:46:27', '2024-07-23 13:46:27'),
+(33, 'Desi@gmail.com', 'Desii', '$2y$10$ws/g8G1.QqCfN8V6VnG7lucV1mtKNS34PAlgiIFxBRmjNXucescj.', 'Pengguna', NULL, '2024-07-23 13:54:03', '2024-07-23 13:54:03'),
+(35, 'Aldo@gmail.com', 'Dessi', '$2y$10$u1VbBEp8J2QD.spnBUSbLuSC2L9qhqrx9Pq0yqUsREI4ea2Vu.qsm', 'Pengguna', NULL, '2024-07-23 13:58:56', '2024-07-23 13:58:56'),
+(36, 'Utami@gmail.com', 'Utami', '$2y$10$M/X3BU1bRTlAtx/qGKBK6edDNuUdioZMkBOp3ZOj4UBL1PMa1n0eC', 'Pengguna', NULL, '2024-07-23 14:04:01', '2024-07-23 14:04:01'),
+(37, 'Liya@gmail.com', 'Liyaa', '$2y$10$e3IFt7Sm8Vd7mqD1W6RZKuQjLcR9rntGmSg4sIW6mzGVMGrtJakEy', 'Pengguna', NULL, '2024-07-23 14:07:40', '2024-07-23 14:07:40');
 
 -- --------------------------------------------------------
 
@@ -80,10 +89,19 @@ CREATE TABLE `datapengguna` (
 --
 
 INSERT INTO `datapengguna` (`iddataPengguna`, `Nik`, `Foto`, `Nama_anak`, `Usia`, `Nama_ibu`, `Alamat`, `Desa`, `Kecamatan`, `Rt`, `Rw`, `No_Hp`, `Nama_posyandu`, `Created_at`, `Updated_at`, `Akun_idAkun`) VALUES
-(1, '2039827122121114', 'default.jpg', 'Keyla Ayu', '5', 'Irma', 'Pacitan', 'Tangan Sewu', 'Ringin Rejo', '03', '01', '081298910111', 'Tambak Wirang', '2024-05-16 19:54:30', '2024-05-16 20:35:32', 1),
-(2, '9182718123761562', 'Ricky Agug Sumiranto.jpg', 'Ricky Agug Sumiranto', '4', 'Mujiati', 'Ds.Tanjung tani, kec.prambon, kab.nganjuk Rt.04 Rw.01', 'Tanjung Tani', 'Prambon', '04', '01', '081276435511', 'Tambak Wirang', '2024-05-16 20:56:44', '2024-05-28 18:43:33', 4),
-(3, '0192871263547891', '8.png', 'Harmadi', '5', 'Mujiati', 'Ds.Tanjung tani, kec.prambon, kab.nganjuk Rt.04 Rw.01', 'Tanjung Tani', 'Prambon', '04', '01', '081728181124', 'Tambak Wirang', '2024-05-16 21:06:05', '2024-05-16 21:06:05', 8),
-(4, '0987654123456789', 'default.jpg', 'AlFarizal al ul', '4', 'Pipit Nuril Hadayani', 'Ds.Tanjung tani, kec.prambon, kab.nganjuk Rt.04 Rw.01', 'Tanjung Tani', 'Prambon', '04', '01', '086514146776', 'Tambak Wirang', '2024-05-17 08:05:53', '2024-05-17 08:05:53', 9);
+(8, '9829387281938475', 'default.jpg', 'Lintang Maharani', '1', 'Wiwik Rahayu', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 19:59:10', '2024-07-23 19:59:10', 18),
+(9, '9287364517382123', 'Adilla Nisa ardhani.jpg', 'Adilla Nisa ardhani', '1', 'Tiyas selviana', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:03:32', '2024-07-23 20:04:36', 19),
+(10, '8762548271635213', '20.jpg', 'Mikayla Sintia Zhafira', '2', 'Erma Dharma Wanti', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:09:29', '2024-07-23 20:09:29', 20),
+(11, '8726451244561732', '21.jpg', 'Alfarezal nufail zafran', '2', 'Pipit nuril handayani', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:13:16', '2024-07-23 20:13:16', 21),
+(14, '7163528976326178', '27.jpg', 'Faeza Gaffi Manaf', '1', 'Pipit nuril handayani', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:27:23', '2024-07-23 20:27:23', 27),
+(15, '6172874263459187', 'default.jpg', 'Arkana Izzan Pratama', '1', 'Tri Agustina Rahma sari', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:31:31', '2024-07-23 20:31:31', 28),
+(16, '7165347291876351', 'default.jpg', 'Karina Jayanti', '1', 'Enik Purwati', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:36:20', '2024-07-23 20:36:20', 29),
+(17, '8765248910245672', 'default.jpg', 'Vandra Tristan Hasan', '2', 'Elva VioLita', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:40:16', '2024-07-23 20:40:16', 30),
+(18, '7286453829178346', 'default.jpg', 'Indana Zulfa', '1', 'Ibu Wiwin', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:46:27', '2024-07-23 20:46:27', 31),
+(20, '8176258907609261', 'default.jpg', 'Syahiba Nur Azani', '2', 'Desi', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:54:03', '2024-07-23 20:54:03', 33),
+(21, '9087578953126904', 'default.jpg', 'M Aldo syahidan', '1', 'Desi', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 20:58:56', '2024-07-23 20:58:56', 35),
+(22, '4809631890568795', 'default.jpg', 'Kayshila Maheswari', '1', 'Diah Utami', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 21:04:01', '2024-07-23 21:04:01', 36),
+(23, '5609423176489560', 'default.jpg', 'M suryana Rifqi Hamizan', '2', 'Liya irmaya', 'Ds.Sidowarek, Kec.Plemahan, kab.kediri', 'Sidowarek', 'Plemahan', '0', '0', '0', 'Tambak Wirang', '2024-07-23 21:07:40', '2024-07-23 21:07:40', 37);
 
 -- --------------------------------------------------------
 
@@ -127,19 +145,20 @@ CREATE TABLE `hasil_input` (
 --
 
 INSERT INTO `hasil_input` (`idHasil_input`, `Lingkungan`, `Pola_asuh`, `Kesehatan_anak`, `Faktor_kesehatan_ibu`, `Pengetahuan_orangtua`, `Kekurangan_Gizi_saat_Hamil`, `Pola_Makanbalita`, `dataPengguna_iddataPengguna`, `Fatror_penyebab`, `Created_at`, `Updated_at`) VALUES
-(18, '20.0', '20.0', '13.8', '13.3', '12.3', '10.8', '9.7', 2, 'Lingkungan', '2024-05-16 14:08:48', '2024-05-16 14:08:48'),
-(19, '17.7', '17.2', '16.3', '14.3', '13.3', '12.3', '8.9', 2, 'Pola Asuh', '2024-05-16 14:14:26', '2024-05-16 14:14:26'),
-(20, '19.9', '17.0', '17.0', '14.8', '12.5', '10.2', '8.5', 1, 'Lingkungan', '2024-05-16 15:00:01', '2024-05-16 15:00:01'),
-(21, '19.9', '17.0', '17.0', '14.8', '12.5', '10.2', '8.5', 1, 'Lingkungan', '2024-05-16 15:06:33', '2024-05-16 15:06:33'),
-(22, '17.6', '17.6', '15.1', '14.5', '13.8', '13.2', '8.2', 1, 'Lingkungan', '2024-05-16 15:59:05', '2024-05-16 15:59:05'),
-(23, '20.1', '16.6', '16.1', '14.6', '12.6', '11.1', '9.0', 4, 'Lingkungan', '2024-05-17 13:07:42', '2024-05-17 13:07:42'),
-(24, '18.5', '16.7', '15.5', '14.3', '13.7', '11.9', '9.5', 4, 'Pola Makan Balita', '2024-05-17 13:48:41', '2024-05-17 13:48:41'),
-(25, '16.3', '15.8', '14.4', '14.4', '13.9', '13.4', '11.9', 2, 'Kesehatan Anak', '2024-05-20 01:27:18', '2024-05-20 01:27:18'),
-(26, '17.6', '15.6', '15.1', '13.7', '13.7', '12.7', '11.7', 2, 'Kesehatan Ibu', '2024-05-20 04:45:42', '2024-05-20 04:45:42'),
-(27, '16.3', '15.9', '14.9', '14.9', '13.9', '13.5', '10.6', 2, 'Kesehatan Anak', '2024-05-20 07:10:24', '2024-05-20 07:10:24'),
-(28, '17.7', '17.1', '15.5', '14.4', '13.3', '11.6', '10.5', 3, 'Lingkungan', '2024-05-20 07:16:47', '2024-05-20 07:16:47'),
-(29, '18.2', '17.1', '15.5', '14.4', '12.7', '12.2', '9.9', 2, 'Lingkungan', '2024-05-22 14:25:28', '2024-05-22 14:25:28'),
-(30, '17.3', '15.2', '14.7', '13.7', '13.2', '13.2', '12.7', 3, 'Kurang Gizi saat Hamil', '2024-05-28 15:35:46', '2024-05-28 15:35:46');
+(51, '16.4', '16.4', '15.0', '15.0', '12.6', '12.6', '12.1', 8, 'Pengetahuan Orangtua', '2024-07-23 03:10:38', '2024-07-25 16:27:23'),
+(52, '17.4', '16.8', '14.7', '14.7', '14.7', '11.6', '10.0', 9, 'Kesehatan Ibu', '2024-07-23 03:24:06', '2024-07-25 16:28:22'),
+(53, '18.6', '14.9', '14.9', '13.5', '13.5', '13.5', '11.2', 10, 'Lingkungan', '2024-07-23 03:35:48', '2024-07-25 16:28:50'),
+(54, '16.5', '16.0', '16.0', '15.5', '14.4', '11.3', '10.3', 11, 'Pola Asuh', '2024-07-23 03:47:47', '2024-07-25 16:29:45'),
+(55, '16.4', '16.4', '15.4', '14.4', '12.8', '12.8', '11.8', 14, 'Kesehatan Ibu', '2024-07-23 03:56:43', '2024-07-25 16:30:00'),
+(56, '17.2', '16.7', '14.8', '13.4', '12.9', '12.4', '12.4', 15, 'Pola Asuh', '2024-07-23 04:40:30', '2024-07-25 16:30:35'),
+(57, '17.1', '16.5', '16.5', '14.7', '14.1', '11.8', '9.4', 16, 'Kesehatan Ibu', '2024-07-23 04:56:23', '2024-07-25 16:30:57'),
+(58, '16.5', '16.1', '15.6', '13.8', '13.8', '12.9', '11.2', 17, 'Lingkungan', '2024-07-23 05:05:37', '2024-07-25 16:31:25'),
+(59, '16.7', '16.2', '13.9', '13.9', '13.9', '13.0', '12.5', 18, 'Pola Makan Balita', '2024-07-23 07:44:50', '2024-07-25 16:31:38'),
+(60, '17.7', '17.2', '16.3', '13.8', '12.8', '12.3', '9.9', 20, 'Pola Asuh', '2024-07-23 07:57:16', '2024-07-25 16:31:56'),
+(61, '19.0', '16.4', '15.4', '14.4', '12.8', '12.3', '9.7', 21, 'Kesehatan Anak', '2024-07-23 08:13:12', '2024-07-25 16:32:19'),
+(62, '17.1', '17.1', '16.1', '14.1', '12.6', '11.6', '11.6', 22, 'Kesehatan Anak', '2024-07-23 09:13:28', '2024-07-25 16:36:15'),
+(63, '19.4', '17.2', '15.6', '15.1', '14.0', '11.8', '7.0', 23, 'Pengetahuan Orangtua', '2024-07-23 09:37:49', '2024-07-25 16:37:50'),
+(64, '16.6', '16.6', '15.0', '14.5', '14.0', '12.4', '10.9', 11, 'Pola Asuh', '2024-08-14 02:09:09', '2024-08-14 02:09:09');
 
 -- --------------------------------------------------------
 
@@ -215,11 +234,11 @@ CREATE TABLE `solusi` (
 INSERT INTO `solusi` (`idSolusi`, `Faktor_penyebab`, `Nama_file`, `Created_at`, `Updated_at`) VALUES
 (1, 'Lingkungan', 'Lingkungan.pdf', '2024-04-30 13:51:47', '2024-05-06 21:02:29'),
 (2, 'Pola Asuh', 'Pola Asuh.pdf', '2024-04-30 13:51:47', '2024-05-06 19:35:29'),
-(3, 'Kesehatan Anak', 'Kesehatan Anak.pdf', '2024-04-30 13:51:47', '2024-05-15 22:41:13'),
-(4, 'Kesehatan Ibu', NULL, '2024-04-30 13:51:47', '2024-05-20 14:44:38'),
-(5, 'Pengetahuan Orangtua', NULL, '2024-04-30 13:51:47', '2024-04-30 13:51:47'),
-(6, 'Kurang Gizi saat Hamil', NULL, '2024-04-30 13:51:47', '2024-04-30 13:51:47'),
-(7, 'Pola Makan Balita', NULL, '2024-04-30 13:51:47', '2024-04-30 13:51:47');
+(3, 'Kesehatan Anak', 'Kesehatan Anak.pdf', '2024-04-30 13:51:47', '2024-06-15 16:04:24'),
+(4, 'Kesehatan Ibu', 'Kesehatan Ibu.pdf', '2024-04-30 13:51:47', '2024-06-16 00:07:19'),
+(5, 'Pengetahuan Orangtua', 'Pengetahuan Orangtua.pdf', '2024-04-30 13:51:47', '2024-06-16 00:35:14'),
+(6, 'Kurang Gizi saat Hamil', 'Kurang Gizi saat Hamil.pdf', '2024-04-30 13:51:47', '2024-06-16 00:49:06'),
+(7, 'Pola Makan Balita', 'Pola Makan Balita.pdf', '2024-04-30 13:51:47', '2024-06-16 01:02:05');
 
 -- --------------------------------------------------------
 
@@ -324,13 +343,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT untuk tabel `datapengguna`
 --
 ALTER TABLE `datapengguna`
-  MODIFY `iddataPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `iddataPengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -342,7 +361,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `hasil_input`
 --
 ALTER TABLE `hasil_input`
-  MODIFY `idHasil_input` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idHasil_input` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
