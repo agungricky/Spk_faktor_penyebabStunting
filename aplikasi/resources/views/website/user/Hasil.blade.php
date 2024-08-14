@@ -123,10 +123,10 @@
                                     <thead>
                                         <tr>
                                             <th class="custom-col-no">Inputan pengguna</th>
-                                            <td>Sangat Benar</td>
-                                            <td>Benar</td>
-                                            <td>Kurang Benar</td>
-                                            <td>Tidak Benar</td>
+                                            <td>A</td>
+                                            <td>B</td>
+                                            <td>C</td>
+                                            <td>D</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -263,8 +263,10 @@
                         </div>
 
                         <div class="alert alert-warning" role="alert">
-                            Tampaknya Faktor <span class="fw-bold text-dark">{{$data[0][0]}}</span> Menjadi penyebab utama anak beresiko stunting, Untuk melihat Tips Klik 
-                            <a href="{{ route('Hasil', ['parameter' => $data[0][0]]) }}" class="fw-bold text-dark">({{$data[0][0]}})</a>
+                            Tampaknya Faktor <span class="fw-bold text-dark">{{ $data[0][0] }}</span> Menjadi penyebab
+                            utama anak beresiko stunting, Untuk melihat Tips Klik
+                            <a href="{{ route('Hasil', ['parameter' => $data[0][0]]) }}"
+                                class="fw-bold text-dark">({{ $data[0][0] }})</a>
                         </div>
 
                     </div>

@@ -272,7 +272,7 @@ class AdminController extends Controller
     public function destroy_Akun(string $id)
     {
 
-        Akun::where('idAkun', $id)->delete();
+        Akun::where('id', $id)->delete();
         return redirect('Admin')->with('success', 'Berhasil Menghapus data.');
     }
 
